@@ -52,6 +52,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (openfl && !flash)
 		
 		
+		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_nexa_bold_otf);
 		
 		
 		
@@ -71,6 +72,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
 		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
+		className.set ("assets/data/NEXA BOLD.OTF", __ASSET__assets_data_nexa_bold_otf);
+		type.set ("assets/data/NEXA BOLD.OTF", AssetType.FONT);
 		className.set ("assets/images/CompWithRBY.ase", __ASSET__assets_images_compwithrby_ase);
 		type.set ("assets/images/CompWithRBY.ase", AssetType.BINARY);
 		className.set ("assets/images/CompWithRBY.png", __ASSET__assets_images_compwithrby_png);
@@ -104,6 +107,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
+		id = "assets/data/NEXA BOLD.OTF";
+		className.set (id, __ASSET__assets_data_nexa_bold_otf);
+		
+		type.set (id, AssetType.FONT);
 		id = "assets/images/CompWithRBY.ase";
 		path.set (id, id);
 		
@@ -172,6 +179,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
 		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
+		
+		className.set ("assets/data/NEXA BOLD.OTF", __ASSET__assets_data_nexa_bold_otf);
+		type.set ("assets/data/NEXA BOLD.OTF", AssetType.FONT);
 		
 		className.set ("assets/images/CompWithRBY.ase", __ASSET__assets_images_compwithrby_ase);
 		type.set ("assets/images/CompWithRBY.ase", AssetType.BINARY);
@@ -854,6 +864,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if flash
 
 @:keep @:bind #if display private #end class __ASSET__assets_data_data_goes_here_txt extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_nexa_bold_otf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_compwithrby_ase extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_compwithrby_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_images_go_here_txt extends flash.utils.ByteArray { }
@@ -871,6 +882,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #elseif html5
 
 
+@:keep #if display private #end class __ASSET__assets_data_nexa_bold_otf extends lime.text.Font { public function new () { super (); name = "Nexa Bold"; } } 
 
 
 
@@ -893,6 +905,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:file("assets/data/data-goes-here.txt") #if display private #end class __ASSET__assets_data_data_goes_here_txt extends lime.utils.Bytes {}
+@:font("assets/data/NEXA BOLD.OTF") #if display private #end class __ASSET__assets_data_nexa_bold_otf extends lime.text.Font {}
 @:file("assets/images/CompWithRBY.ase") #if display private #end class __ASSET__assets_images_compwithrby_ase extends lime.utils.Bytes {}
 @:image("assets/images/CompWithRBY.png") #if display private #end class __ASSET__assets_images_compwithrby_png extends lime.graphics.Image {}
 @:file("assets/images/images-go-here.txt") #if display private #end class __ASSET__assets_images_images_go_here_txt extends lime.utils.Bytes {}
@@ -912,6 +925,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #end
 
 #if (openfl && !flash)
+@:keep #if display private #end class __ASSET__OPENFL__assets_data_nexa_bold_otf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_data_nexa_bold_otf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_nokiafc22_ttf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_monsterrat_ttf (); src = font.src; name = font.name; super (); }}
 

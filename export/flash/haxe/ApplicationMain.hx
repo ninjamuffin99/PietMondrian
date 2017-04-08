@@ -34,6 +34,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("Nexa Bold");
+		types.push (lime.Assets.AssetType.FONT);
+		
+		
 		urls.push ("assets/images/CompWithRBY.ase");
 		types.push (lime.Assets.AssetType.BINARY);
 		
@@ -143,7 +147,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "51",
+			build: "68",
 			company: "ninjaMuffin",
 			file: "PietMondrian",
 			fps: 60,

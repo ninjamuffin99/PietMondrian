@@ -42,9 +42,10 @@ class PlayState extends FlxState
 		compInRYB = new FlxSprite(1560, FlxG.height - 120);
 		compInRYB.loadGraphic("assets/images/CompWithRBY.png", false, 64, 64);
 		
-		compInRYBText = new FlxTypeText(compInRYB.x - 5, compInRYBText.y - 10, 60, "Composition in Red Blue and Yellow");
-		compInRYBText.paused = false;
-		
+		compInRYBText = new FlxTypeText(compInRYB.x - 65, compInRYB.y - 20, FlxG.width, "Composition in Red Blue and Yellow", 16);
+		compInRYBText.color = FlxColor.BLACK;
+		compInRYBText.font = "assets/data/NEXA BOLD.OTF";
+		compInRYBText.setTypingVariation(0.1);
 		
 		add(bg);
 		add(compInRYB);
@@ -65,10 +66,15 @@ class PlayState extends FlxState
 			_player.x = 6;
 		}
 		
-		/*if (FlxG.overlap(_player, compInRYB))
+		if (FlxG.overlap(_player, compInRYB))
 		{
-			compInRYBText.start(0.3);
-		}*/
+			FlxG.log.add("overlapping");
+			compInRYBText.start(0.07);
+		}
+		else
+		{
+			compInRYBText.erase(0.05);
+		}
 		super.update(elapsed);
 	}
 }
