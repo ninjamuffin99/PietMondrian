@@ -38,6 +38,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.FONT);
 		
 		
+		urls.push ("Nexa Light");
+		types.push (lime.Assets.AssetType.FONT);
+		
+		
 		urls.push ("assets/images/CompWithRBY.ase");
 		types.push (lime.Assets.AssetType.BINARY);
 		
@@ -147,7 +151,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "68",
+			build: "95",
 			company: "ninjaMuffin",
 			file: "PietMondrian",
 			fps: 60,
