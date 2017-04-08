@@ -34,11 +34,19 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/images/CompWithRBY.ase");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
+		urls.push ("assets/images/CompWithRBY.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/images-go-here.txt");
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("assets/music/717073_A2-01.mp3");
+		urls.push ("assets/music/A2-01.mp3");
 		types.push (lime.Assets.AssetType.MUSIC);
 		
 		
@@ -135,7 +143,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "41",
+			build: "51",
 			company: "ninjaMuffin",
 			file: "PietMondrian",
 			fps: 60,

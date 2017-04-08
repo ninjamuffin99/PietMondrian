@@ -3,6 +3,7 @@ package;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.addons.text.FlxTypeText;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
@@ -15,6 +16,10 @@ class PlayState extends FlxState
 	private var museumRoof:FlxSprite;
 	private var bg:FlxSprite;
 	
+	private var compInRYBText:FlxTypeText;
+	
+	private var compInRYB:FlxSprite;
+	
 	override public function create():Void
 	{
 		bg = new FlxSprite(0, 0);
@@ -23,7 +28,7 @@ class PlayState extends FlxState
 		
 		FlxG.worldBounds.set(0, 0, 4000, 480);
 		
-		FlxG.sound.playMusic("assets/music/717073_A2-01.mp3", 0.1, true);
+		FlxG.sound.playMusic("assets/music/A2-01.mp3", 0.2, true);
 		
 		_player = new Player(40, 400);
 		
@@ -34,8 +39,16 @@ class PlayState extends FlxState
 		museumRoof = new FlxSprite(1150, FlxG.height - 200);
 		museumRoof.makeGraphic(1000, 20, FlxColor.BLACK);
 		
+		compInRYB = new FlxSprite(1560, FlxG.height - 120);
+		compInRYB.loadGraphic("assets/images/CompWithRBY.png", false, 64, 64);
+		
+		compInRYBText = new FlxTypeText(compInRYB.x - 5, compInRYBText.y - 10, 60, "Composition in Red Blue and Yellow");
+		compInRYBText.paused = false;
+		
 		
 		add(bg);
+		add(compInRYB);
+		add(compInRYBText);
 		add(museumRoof);
 		add(_player);
 		add(ground);
@@ -52,6 +65,10 @@ class PlayState extends FlxState
 			_player.x = 6;
 		}
 		
+		/*if (FlxG.overlap(_player, compInRYB))
+		{
+			compInRYBText.start(0.3);
+		}*/
 		super.update(elapsed);
 	}
 }
