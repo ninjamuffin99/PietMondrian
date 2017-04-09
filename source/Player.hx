@@ -13,6 +13,8 @@ import flixel.util.FlxColor;
 class Player extends FlxSprite 
 {
 	public var speed:Int = 200;
+	public static var X:Int = 40;
+	public static var Y:Int = 400;
 	
 	public function new(?X:Float=0, ?Y:Float=0) 
 	{
