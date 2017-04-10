@@ -18,10 +18,12 @@ class PlayState extends FlxState
 	private var bg:FlxSprite;
 	
 	private var compInRYBText:FlxTypeText;
+	
 	private var _title:FlxTypeText;
 	private var _firstParagraph:FlxTypeText;
 	
 	private var compInRYB:FlxSprite;
+	private var compBRBYG:FlxSprite;
 	
 	private var _canvas:FlxSprite;
 	private var _vignette:FlxSprite;
@@ -47,6 +49,9 @@ class PlayState extends FlxState
 		
 		compInRYB = new FlxSprite(1560, FlxG.height - 120);
 		compInRYB.loadGraphic("assets/images/CompWithRBY.png", false, 64, 64);
+		
+		compBRBYG = new FlxSprite(FlxG.width * 3.5, FlxG.height - 120);
+		compBRBYG.loadGraphic("assets/images/compBRBYG.png", false, 64, 64);
 		
 		compInRYBText = new FlxTypeText(compInRYB.x - 65, compInRYB.y - 20, FlxG.width, "Composition II in Red Blue and Yellow, 1930", 16);
 		compInRYBText.color = FlxColor.BLACK;
@@ -79,6 +84,7 @@ class PlayState extends FlxState
 		
 		add(bg);
 		add(compInRYB);
+		add(compBRBYG);
 		add(compInRYBText);
 		add(museumRoof);
 		add(_player);
