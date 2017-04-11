@@ -88,7 +88,7 @@ ApplicationMain.init = function() {
 	}
 };
 ApplicationMain.main = function() {
-	ApplicationMain.config = { build : "241", company : "ninjaMuffin", file : "PietMondrian", fps : 60, name : "PietMondrian", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 480, parameters : "{}", resizable : false, stencilBuffer : true, title : "PietMondrian", vsync : true, width : 640, x : null, y : null}]};
+	ApplicationMain.config = { build : "252", company : "ninjaMuffin", file : "PietMondrian", fps : 60, name : "PietMondrian", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 480, parameters : "{}", resizable : false, stencilBuffer : true, title : "PietMondrian", vsync : true, width : 640, x : null, y : null}]};
 };
 ApplicationMain.start = function() {
 	var hasMain = false;
@@ -2832,6 +2832,8 @@ BRBYGState.__super__ = flixel_FlxState;
 BRBYGState.prototype = $extend(flixel_FlxState.prototype,{
 	bg: null
 	,_player: null
+	,_red: null
+	,_yellow: null
 	,_horizLine1: null
 	,_horizLine2: null
 	,_horizLine3: null
@@ -2839,19 +2841,30 @@ BRBYGState.prototype = $extend(flixel_FlxState.prototype,{
 	,_horizLine5: null
 	,_vertLine1: null
 	,_vertLine2: null
+	,_vertLine4: null
 	,_vignette: null
 	,create: function() {
 		flixel_FlxG.camera.fade(-16777216,1,true);
 		this.bg = new flixel_FlxSprite(0,0);
 		this.bg.makeGraphic(flixel_FlxG.width,flixel_FlxG.height,-1);
 		this.add(this.bg);
+		this.makeColor();
 		this.makeLine();
 		this.makeVertLine();
 		this._player = new Player(flixel_FlxG.width * 0.07,flixel_FlxG.height * 0.01);
 		this.add(this._player);
 		this._vignette = new flixel_FlxSprite(0,0,"assets/images/vignetteresized.png");
+		this._vignette.set_alpha(0.25);
 		this.add(this._vignette);
 		flixel_FlxState.prototype.create.call(this);
+	}
+	,makeColor: function() {
+		this._red = new flixel_FlxSprite(flixel_FlxG.width * 0.1,flixel_FlxG.height * 0.1);
+		this._red.makeGraphic(flixel_FlxG.width * 0.45 | 0,flixel_FlxG.width * 0.45 | 0,-65536);
+		this.add(this._red);
+		this._yellow = new flixel_FlxSprite(flixel_FlxG.width * 0.55,0);
+		this._yellow.makeGraphic(flixel_FlxG.width * 0.3 | 0,flixel_FlxG.height * 0.4 | 0,-256);
+		this.add(this._yellow);
 	}
 	,makeLine: function() {
 		var lineThickness = flixel_FlxG.height * 0.03 | 0;
@@ -2860,7 +2873,7 @@ BRBYGState.prototype = $extend(flixel_FlxState.prototype,{
 		this._horizLine1.makeGraphic(rightPadding,lineThickness,-16777216);
 		this._horizLine1.set_immovable(true);
 		this.add(this._horizLine1);
-		this._horizLine2 = new flixel_FlxSprite(0,flixel_FlxG.height * 0.35);
+		this._horizLine2 = new flixel_FlxSprite(0,flixel_FlxG.height * 0.4);
 		this._horizLine2.makeGraphic(rightPadding,lineThickness,-16777216);
 		this.add(this._horizLine2);
 		this._horizLine3 = new flixel_FlxSprite(flixel_FlxG.width * 0.1,flixel_FlxG.height * 0.6);
@@ -2875,13 +2888,16 @@ BRBYGState.prototype = $extend(flixel_FlxState.prototype,{
 	}
 	,makeVertLine: function() {
 		var lineThickness = flixel_FlxG.width * 0.02 | 0;
-		var topPadding = flixel_FlxG.height * 0.05 | 0;
+		var topPadding = flixel_FlxG.height * 0.025 | 0;
 		this._vertLine1 = new flixel_FlxSprite(flixel_FlxG.width * 0.1,flixel_FlxG.height * 0.1);
 		this._vertLine1.makeGraphic(lineThickness,flixel_FlxG.height,-16777216);
 		this.add(this._vertLine1);
 		this._vertLine2 = new flixel_FlxSprite(flixel_FlxG.width * 0.25,topPadding);
 		this._vertLine2.makeGraphic(lineThickness,flixel_FlxG.height * 0.1 | 0,-16777216);
 		this.add(this._vertLine2);
+		this._vertLine4 = new flixel_FlxSprite(flixel_FlxG.width * 0.55,topPadding);
+		this._vertLine4.makeGraphic(lineThickness,flixel_FlxG.height * 0.9 | 0,-16777216);
+		this.add(this._vertLine4);
 	}
 	,update: function(elapsed) {
 		flixel_FlxG.overlap(this._player,this._horizLine1,null,flixel_FlxObject.separate);
