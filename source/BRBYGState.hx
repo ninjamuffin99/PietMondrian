@@ -14,6 +14,9 @@ class BRBYGState extends FlxState
 	private var bg:FlxSprite;
 	private var _player:Player;
 	
+	private var _red:FlxSprite;
+	private var _yellow:FlxSprite;
+	
 	private var _horizLine1:FlxSprite;
 	private var _horizLine2:FlxSprite;
 	private var _horizLine3:FlxSprite;
@@ -23,6 +26,11 @@ class BRBYGState extends FlxState
 	private var _vertLine1:FlxSprite;
 	private var _vertLine2:FlxSprite;
 	
+	private var _vertLine4:FlxSprite;
+	
+	
+	private var _vignette:FlxSprite;
+	
 	override public function create():Void 
 	{
 		FlxG.camera.fade(FlxColor.BLACK, 1, true);
@@ -31,13 +39,30 @@ class BRBYGState extends FlxState
 		bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
 		add(bg);
 		
+		makeColor();
+		
 		makeLine();
 		makeVertLine();
 		
 		_player = new Player(FlxG.width * 0.07, FlxG.height * 0.01);
 		add(_player);
 		
+		_vignette = new FlxSprite(0, 0, "assets/images/vignetteresized.png");
+		_vignette.alpha = 0.25;
+		add(_vignette);
+		
 		super.create();
+	}
+	
+	private function makeColor():Void
+	{
+		_red = new FlxSprite(FlxG.width * 0.1, FlxG.height * 0.1);
+		_red.makeGraphic(Std.int(FlxG.width * 0.45), Std.int(FlxG.width * 0.45), FlxColor.RED);
+		add(_red);
+		
+		_yellow = new FlxSprite(FlxG.width * 0.55, 0);
+		_yellow.makeGraphic(Std.int(FlxG.width * 0.3), Std.int(FlxG.height * 0.4), FlxColor.YELLOW);
+		add(_yellow);
 	}
 	
 	private function makeLine():Void
@@ -63,22 +88,27 @@ class BRBYGState extends FlxState
 		add(_horizLine4);
 		
 		_horizLine5 = new FlxSprite(FlxG.width * 0.1, FlxG.height * 0.9);
-		_horizLine5.makeGraphic(FlxG.width * 0.5, lineThickness, FLxColor.BLACK);
+		_horizLine5.makeGraphic(Std.int(FlxG.width * 0.5), lineThickness, FlxColor.BLACK);
 		add(_horizLine5);
 	}
 	
 	private function makeVertLine():Void
 	{
-		var lineThickness:Int = Std.int(FlxG.width * 0.03);
-		var topPadding:Int = Std.int(FlxG.height * 0.05);
+		var lineThickness:Int = Std.int(FlxG.width * 0.02);
+		var topPadding:Int = Std.int(FlxG.height * 0.025);
 		
 		_vertLine1 = new FlxSprite(FlxG.width * 0.1, FlxG.height * 0.1);
 		_vertLine1.makeGraphic(lineThickness, FlxG.height, FlxColor.BLACK);
 		add(_vertLine1);
 		
 		_vertLine2 = new FlxSprite(FlxG.width * 0.25, topPadding);
-		_vertLine2.makeGraphic(lineThickness, FlxG.height * 0.1, FlxColor.BLACK);
+		_vertLine2.makeGraphic(lineThickness, Std.int(FlxG.height * 0.1), FlxColor.BLACK);
 		add(_vertLine2);
+		
+		
+		_vertLine4 = new FlxSprite(FlxG.width * 0.55, topPadding);
+		_vertLine4.makeGraphic(lineThickness, Std.int(FlxG.height * 0.9), FlxColor.BLACK);
+		add(_vertLine4);
 	}
 	
 	override public function update(elapsed:Float):Void 

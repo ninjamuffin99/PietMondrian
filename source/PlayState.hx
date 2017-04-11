@@ -63,7 +63,7 @@ class PlayState extends FlxState
 		compInRYBText.font = ArtFont;
 		compInRYBText.setTypingVariation(0.1);
 		
-		compInBRBYGText = new FlxTypeText(compBRBYG.x - 300, compBRBYG.y + 20, Std.int(FlxG.width * 0.5), "Composition with Large Red Plane, Yellow, Black, Gray and Blue", 16);
+		compInBRBYGText = new FlxTypeText(compBRBYG.x - 300, compBRBYG.y + 20, Std.int(FlxG.width * 0.5), "Composition with Large Red Plane, Yellow, Black, Gray and Blue (1921)", 16);
 		compInBRBYGText.color = FlxColor.BLACK;
 		compInBRBYGText.font = ArtFont;
 		compInBRBYGText.setTypingVariation(0.1);

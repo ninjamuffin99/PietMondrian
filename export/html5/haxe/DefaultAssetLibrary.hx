@@ -52,6 +52,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (openfl && !flash)
 		
 		
+		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_nexa_bold_otf);
+		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_data_nexa_light_otf);
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -68,8 +76,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
 		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
+		className.set ("assets/data/NEXA BOLD.OTF", __ASSET__assets_data_nexa_bold_otf);
+		type.set ("assets/data/NEXA BOLD.OTF", AssetType.FONT);
+		className.set ("assets/data/Nexa Light.otf", __ASSET__assets_data_nexa_light_otf);
+		type.set ("assets/data/Nexa Light.otf", AssetType.FONT);
+		className.set ("assets/images/canvas.jpg", __ASSET__assets_images_canvas_jpg);
+		type.set ("assets/images/canvas.jpg", AssetType.IMAGE);
+		className.set ("assets/images/compBRBYG.png", __ASSET__assets_images_compbrbyg_png);
+		type.set ("assets/images/compBRBYG.png", AssetType.IMAGE);
+		className.set ("assets/images/CompWithRBY.ase", __ASSET__assets_images_compwithrby_ase);
+		type.set ("assets/images/CompWithRBY.ase", AssetType.BINARY);
+		className.set ("assets/images/CompWithRBY.png", __ASSET__assets_images_compwithrby_png);
+		type.set ("assets/images/CompWithRBY.png", AssetType.IMAGE);
 		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
 		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
+		className.set ("assets/images/vignetteresized.png", __ASSET__assets_images_vignetteresized_png);
+		type.set ("assets/images/vignetteresized.png", AssetType.IMAGE);
+		className.set ("assets/music/A2-01.mp3", __ASSET__assets_music_a2_01_mp3);
+		type.set ("assets/music/A2-01.mp3", AssetType.MUSIC);
 		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
 		className.set ("assets/sounds/sounds-go-here.txt", __ASSET__assets_sounds_sounds_go_here_txt);
@@ -95,10 +119,42 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
+		id = "assets/data/NEXA BOLD.OTF";
+		className.set (id, __ASSET__assets_data_nexa_bold_otf);
+		
+		type.set (id, AssetType.FONT);
+		id = "assets/data/Nexa Light.otf";
+		className.set (id, __ASSET__assets_data_nexa_light_otf);
+		
+		type.set (id, AssetType.FONT);
+		id = "assets/images/canvas.jpg";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/compBRBYG.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/CompWithRBY.ase";
+		path.set (id, id);
+		
+		type.set (id, AssetType.BINARY);
+		id = "assets/images/CompWithRBY.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/images-go-here.txt";
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
+		id = "assets/images/vignetteresized.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/music/A2-01.mp3";
+		path.set (id, id);
+		
+		type.set (id, AssetType.MUSIC);
 		id = "assets/music/music-goes-here.txt";
 		path.set (id, id);
 		
@@ -152,8 +208,32 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
 		type.set ("assets/data/data-goes-here.txt", AssetType.TEXT);
 		
+		className.set ("assets/data/NEXA BOLD.OTF", __ASSET__assets_data_nexa_bold_otf);
+		type.set ("assets/data/NEXA BOLD.OTF", AssetType.FONT);
+		
+		className.set ("assets/data/Nexa Light.otf", __ASSET__assets_data_nexa_light_otf);
+		type.set ("assets/data/Nexa Light.otf", AssetType.FONT);
+		
+		className.set ("assets/images/canvas.jpg", __ASSET__assets_images_canvas_jpg);
+		type.set ("assets/images/canvas.jpg", AssetType.IMAGE);
+		
+		className.set ("assets/images/compBRBYG.png", __ASSET__assets_images_compbrbyg_png);
+		type.set ("assets/images/compBRBYG.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/CompWithRBY.ase", __ASSET__assets_images_compwithrby_ase);
+		type.set ("assets/images/CompWithRBY.ase", AssetType.BINARY);
+		
+		className.set ("assets/images/CompWithRBY.png", __ASSET__assets_images_compwithrby_png);
+		type.set ("assets/images/CompWithRBY.png", AssetType.IMAGE);
+		
 		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
 		type.set ("assets/images/images-go-here.txt", AssetType.TEXT);
+		
+		className.set ("assets/images/vignetteresized.png", __ASSET__assets_images_vignetteresized_png);
+		type.set ("assets/images/vignetteresized.png", AssetType.IMAGE);
+		
+		className.set ("assets/music/A2-01.mp3", __ASSET__assets_music_a2_01_mp3);
+		type.set ("assets/music/A2-01.mp3", AssetType.MUSIC);
 		
 		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
@@ -824,7 +904,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if flash
 
 @:keep @:bind #if display private #end class __ASSET__assets_data_data_goes_here_txt extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_nexa_bold_otf extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_nexa_light_otf extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_images_canvas_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_compbrbyg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_compwithrby_ase extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_images_compwithrby_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_images_go_here_txt extends null { }
+@:keep @:bind #if display private #end class __ASSET__assets_images_vignetteresized_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_music_a2_01_mp3 extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_music_music_goes_here_txt extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
@@ -836,6 +924,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
+
+@:keep #if display private #end class __ASSET__assets_data_nexa_bold_otf extends lime.text.Font { public function new () { super (); name = "Nexa Bold"; } } 
+@:keep #if display private #end class __ASSET__assets_data_nexa_light_otf extends lime.text.Font { public function new () { super (); name = "Nexa Light"; } } 
+
+
+
+
 
 
 
@@ -857,15 +953,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:file("assets/data/data-goes-here.txt") #if display private #end class __ASSET__assets_data_data_goes_here_txt extends lime.utils.Bytes {}
+@:font("assets/data/NEXA BOLD.OTF") #if display private #end class __ASSET__assets_data_nexa_bold_otf extends lime.text.Font {}
+@:font("assets/data/Nexa Light.otf") #if display private #end class __ASSET__assets_data_nexa_light_otf extends lime.text.Font {}
+@:image("assets/images/canvas.jpg") #if display private #end class __ASSET__assets_images_canvas_jpg extends lime.graphics.Image {}
+@:image("assets/images/compBRBYG.png") #if display private #end class __ASSET__assets_images_compbrbyg_png extends lime.graphics.Image {}
+@:file("assets/images/CompWithRBY.ase") #if display private #end class __ASSET__assets_images_compwithrby_ase extends lime.utils.Bytes {}
+@:image("assets/images/CompWithRBY.png") #if display private #end class __ASSET__assets_images_compwithrby_png extends lime.graphics.Image {}
 @:file("assets/images/images-go-here.txt") #if display private #end class __ASSET__assets_images_images_go_here_txt extends lime.utils.Bytes {}
+@:image("assets/images/vignetteresized.png") #if display private #end class __ASSET__assets_images_vignetteresized_png extends lime.graphics.Image {}
+@:file("assets/music/A2-01.mp3") #if display private #end class __ASSET__assets_music_a2_01_mp3 extends lime.utils.Bytes {}
 @:file("assets/music/music-goes-here.txt") #if display private #end class __ASSET__assets_music_music_goes_here_txt extends lime.utils.Bytes {}
 @:file("assets/sounds/sounds-go-here.txt") #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends lime.utils.Bytes {}
-@:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/sounds/beep.ogg") #if display private #end class __ASSET__flixel_sounds_beep_ogg extends lime.utils.Bytes {}
-@:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/sounds/flixel.ogg") #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends lime.utils.Bytes {}
-@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/fonts/nokiafc22.ttf") #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font {}
-@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/fonts/monsterrat.ttf") #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font {}
-@:image("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/images/ui/button.png") #if display private #end class __ASSET__flixel_images_ui_button_png extends lime.graphics.Image {}
-@:image("C:/HaxeToolkit/haxe/lib/flixel/4,2,0/assets/images/logo/default.png") #if display private #end class __ASSET__flixel_images_logo_default_png extends lime.graphics.Image {}
+@:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/sounds/beep.ogg") #if display private #end class __ASSET__flixel_sounds_beep_ogg extends lime.utils.Bytes {}
+@:file("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/sounds/flixel.ogg") #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends lime.utils.Bytes {}
+@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/fonts/nokiafc22.ttf") #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font {}
+@:font("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/fonts/monsterrat.ttf") #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font {}
+@:image("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/images/ui/button.png") #if display private #end class __ASSET__flixel_images_ui_button_png extends lime.graphics.Image {}
+@:image("C:/HaxeToolkit/haxe/lib/flixel/4,2,1/assets/images/logo/default.png") #if display private #end class __ASSET__flixel_images_logo_default_png extends lime.graphics.Image {}
 
 
 
@@ -873,6 +977,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 #end
 
 #if (openfl && !flash)
+@:keep #if display private #end class __ASSET__OPENFL__assets_data_nexa_bold_otf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_data_nexa_bold_otf (); src = font.src; name = font.name; super (); }}
+@:keep #if display private #end class __ASSET__OPENFL__assets_data_nexa_light_otf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_data_nexa_light_otf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_nokiafc22_ttf (); src = font.src; name = font.name; super (); }}
 @:keep #if display private #end class __ASSET__OPENFL__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { var font = new __ASSET__flixel_fonts_monsterrat_ttf (); src = font.src; name = font.name; super (); }}
 
