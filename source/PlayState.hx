@@ -47,13 +47,13 @@ class PlayState extends FlxState
 		museumRoof = new FlxSprite(1150, FlxG.height - 200);
 		museumRoof.makeGraphic(FlxG.width * 10, 20, FlxColor.BLACK);
 		
-		compInRYB = new FlxSprite(1560, FlxG.height - 120);
+		compInRYB = new FlxSprite(FlxG.width * 2.8, FlxG.height - 120);
 		compInRYB.loadGraphic("assets/images/CompWithRBY.png", false, 64, 64);
 		
 		compBRBYG = new FlxSprite(FlxG.width * 3.5, FlxG.height - 120);
 		compBRBYG.loadGraphic("assets/images/compBRBYG.png", false, 64, 64);
 		
-		compInRYBText = new FlxTypeText(compInRYB.x - 65, compInRYB.y - 20, FlxG.width, "Composition II in Red Blue and Yellow, 1930", 16);
+		compInRYBText = new FlxTypeText(compInRYB.x - 300, compInRYB.y + 50, FlxG.width, "Composition II in Red Blue and Yellow, 1930", 16);
 		compInRYBText.color = FlxColor.BLACK;
 		compInRYBText.font = "assets/data/NEXA BOLD.OTF";
 		compInRYBText.setTypingVariation(0.1);

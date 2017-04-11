@@ -2,6 +2,7 @@ package;
 
 import flixel.FlxCamera.FlxCameraFollowStyle;
 import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.util.FlxColor;
@@ -15,6 +16,7 @@ class Player extends FlxSprite
 	public var speed:Int = 200;
 	public static var X:Int = 40;
 	public static var Y:Int = 400;
+	private var jumping:Bool = false;
 	
 	public function new(?X:Float=0, ?Y:Float=0) 
 	{
@@ -43,7 +45,7 @@ class Player extends FlxSprite
 		
 		_left = FlxG.keys.anyPressed([LEFT, A]);
 		_right = FlxG.keys.anyPressed([RIGHT, D]);
-		_up = FlxG.keys.anyPressed([SPACE, W, UP]);
+		_up = FlxG.keys.anyJustPressed([SPACE, W, UP]);
 		_run = FlxG.keys.anyPressed([SHIFT, Z]);
 		
 		if (_right && _left)
@@ -64,6 +66,18 @@ class Player extends FlxSprite
 			else
 				speed = 200;
 			velocity.x = -speed;
+		}
+		
+		
+		if (_up && !jumping)
+		{
+			FlxG.log.add("is jumping");
+			velocity.y -= 100;
+			jumping = true;
+		}
+		if (this.isTouching(FlxObject.FLOOR))
+		{
+			jumping = false;
 		}
 	}
 }
