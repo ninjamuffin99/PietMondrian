@@ -18,6 +18,10 @@ class BRBYGState extends FlxState
 	private var _horizLine2:FlxSprite;
 	private var _horizLine3:FlxSprite;
 	private var _horizLine4:FlxSprite;
+	private var _horizLine5:FlxSprite;
+	
+	private var _vertLine1:FlxSprite;
+	private var _vertLine2:FlxSprite;
 	
 	override public function create():Void 
 	{
@@ -28,6 +32,7 @@ class BRBYGState extends FlxState
 		add(bg);
 		
 		makeLine();
+		makeVertLine();
 		
 		_player = new Player(FlxG.width * 0.07, FlxG.height * 0.01);
 		add(_player);
@@ -56,6 +61,24 @@ class BRBYGState extends FlxState
 		_horizLine4 = new FlxSprite(0, FlxG.height * 0.75);
 		_horizLine4.makeGraphic(FlxG.width, lineThickness, FlxColor.BLACK);
 		add(_horizLine4);
+		
+		_horizLine5 = new FlxSprite(FlxG.width * 0.1, FlxG.height * 0.9);
+		_horizLine5.makeGraphic(FlxG.width * 0.5, lineThickness, FLxColor.BLACK);
+		add(_horizLine5);
+	}
+	
+	private function makeVertLine():Void
+	{
+		var lineThickness:Int = Std.int(FlxG.width * 0.03);
+		var topPadding:Int = Std.int(FlxG.height * 0.05);
+		
+		_vertLine1 = new FlxSprite(FlxG.width * 0.1, FlxG.height * 0.1);
+		_vertLine1.makeGraphic(lineThickness, FlxG.height, FlxColor.BLACK);
+		add(_vertLine1);
+		
+		_vertLine2 = new FlxSprite(FlxG.width * 0.25, topPadding);
+		_vertLine2.makeGraphic(lineThickness, FlxG.height * 0.1, FlxColor.BLACK);
+		add(_vertLine2);
 	}
 	
 	override public function update(elapsed:Float):Void 
