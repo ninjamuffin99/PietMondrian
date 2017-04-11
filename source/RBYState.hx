@@ -44,7 +44,7 @@ class RBYState extends FlxState
 		
 		makeArt();
 		
-		_secondParagraph = new FlxTypeText(FlxG.width * 0.25, FlxG.height * 0.1, Std.int(FlxG.width * 0.7), "He was a part of the De Stijil art movement, also known as neoplasticism,  which was a minimalist art movement that advocated black lines on white, with primary colors. Most of Mondrian’s early life was spent in the Netherlands, where he found art at an early age, as his father was a qualified art teacher, and he often painted with his uncle.", 20);
+		_secondParagraph = new FlxTypeText(FlxG.width * 0.25, FlxG.height * 0.1, Std.int(FlxG.width * 0.7), "Most of Mondrian’s early life was spent in the Netherlands, where he found art at an early age, as his father was a qualified art teacher, and he often painted with his uncle.", 20);
 		_secondParagraph.font = "assets/data/Nexa Light.otf";
 		_secondParagraph.color = FlxColor.BLACK;
 		_secondParagraph.setTypingVariation(0.25);

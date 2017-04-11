@@ -71,8 +71,8 @@ class Player extends FlxSprite
 		
 		if (_up && !jumping)
 		{
-			FlxG.log.add("is jumping");
-			velocity.y -= 100;
+			FlxG.log.add(jumping);
+			velocity.y -= 250;
 			jumping = true;
 		}
 		if (this.isTouching(FlxObject.FLOOR))

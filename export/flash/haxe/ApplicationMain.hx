@@ -163,7 +163,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "193",
+			build: "220",
 			company: "ninjaMuffin",
 			file: "PietMondrian",
 			fps: 60,

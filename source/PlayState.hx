@@ -18,9 +18,12 @@ class PlayState extends FlxState
 	private var bg:FlxSprite;
 	
 	private var compInRYBText:FlxTypeText;
+	private var compInBRBYGText:FlxTypeText;
 	
 	private var _title:FlxTypeText;
 	private var _firstParagraph:FlxTypeText;
+	private var _secondParagraph:FlxTypeText;
+	private var _thirdParagraph:FlxTypeText;
 	
 	private var compInRYB:FlxSprite;
 	private var compBRBYG:FlxSprite;
@@ -50,13 +53,20 @@ class PlayState extends FlxState
 		compInRYB = new FlxSprite(FlxG.width * 2.8, FlxG.height - 120);
 		compInRYB.loadGraphic("assets/images/CompWithRBY.png", false, 64, 64);
 		
-		compBRBYG = new FlxSprite(FlxG.width * 3.5, FlxG.height - 120);
+		compBRBYG = new FlxSprite(FlxG.width * 3.8, FlxG.height - 120);
 		compBRBYG.loadGraphic("assets/images/compBRBYG.png", false, 64, 64);
 		
-		compInRYBText = new FlxTypeText(compInRYB.x - 300, compInRYB.y + 50, FlxG.width, "Composition II in Red Blue and Yellow, 1930", 16);
+		var ArtFont:String = "assets/data/NEXA BOLD.OTF";
+		
+		compInRYBText = new FlxTypeText(compInRYB.x - 300, compInRYB.y + 20, Std.int(FlxG.width * 0.5), "Composition II in Red Blue and Yellow, 1930", 16);
 		compInRYBText.color = FlxColor.BLACK;
-		compInRYBText.font = "assets/data/NEXA BOLD.OTF";
+		compInRYBText.font = ArtFont;
 		compInRYBText.setTypingVariation(0.1);
+		
+		compInBRBYGText = new FlxTypeText(compBRBYG.x - 300, compBRBYG.y + 20, Std.int(FlxG.width * 0.5), "Composition with Large Red Plane, Yellow, Black, Gray and Blue", 16);
+		compInBRBYGText.color = FlxColor.BLACK;
+		compInBRBYGText.font = ArtFont;
+		compInBRBYGText.setTypingVariation(0.1);
 		
 		_title = new FlxTypeText(FlxG.width / 10, 110, Std.int(FlxG.width * 0.6), "Piet Mondrian", 80);
 		_title.font = "assets/data/NEXA BOLD.OTF";
@@ -64,10 +74,25 @@ class PlayState extends FlxState
 		_title.setTypingVariation(0.1);
 		_title.start(0.15);
 		
-		_firstParagraph = new FlxTypeText(670, 110, Std.int(FlxG.width * 0.8), "A dutch artist from Amersfoot, Netherlands. Born March 7th 1872 and died Febuary 1st 1944 in Manhattan, New York, where he lived for the last four years of his life.", 20);
-		_firstParagraph.font = "assets/data/Nexa Light.otf";
+		var paragraphY:Int = Std.int(FlxG.height * 0.15);
+		var paragraphWidth:Int = Std.int(FlxG.width * 0.8);
+		var paragraphFont:String = "assets/data/Nexa Light.otf";
+		
+		_firstParagraph = new FlxTypeText(FlxG.width * 1.1, paragraphY, paragraphWidth, "A dutch artist from Amersfoot, Netherlands. Born March 7th 1872 and died Febuary 1st 1944 in Manhattan, New York, where he lived for the last four years of his life.", 20);
+		_firstParagraph.font = paragraphFont;
 		_firstParagraph.color = FlxColor.BLACK;
 		_firstParagraph.setTypingVariation(0.1);
+		
+		_secondParagraph = new FlxTypeText(FlxG.width * 2.1, paragraphY, paragraphWidth, "He was a part of the De Stijil art movement, also known as neoplasticism,  which was a minimalist art movement that advocated black lines on white, with primary colors. ", 20);
+		_secondParagraph.font = paragraphFont;
+		_secondParagraph.color = FlxColor.BLACK;
+		_secondParagraph.setTypingVariation(0.1);
+		
+		_thirdParagraph = new FlxTypeText(FlxG.width * 3.1, paragraphY, paragraphWidth, "In 1892 Mondrian began his career teaching primary education, but still practiced painting. At this point in time he’d only do impressionistic landscapes.", 20);
+		_thirdParagraph.font = paragraphFont;
+		_thirdParagraph.color = FlxColor.BLACK;
+		_thirdParagraph.setTypingVariation(0.1);
+		
 		
 		_canvas = new FlxSprite(0, 0);
 		_canvas.loadGraphic("assets/images/canvas.jpg", false, 800, 533);
@@ -86,14 +111,29 @@ class PlayState extends FlxState
 		add(compInRYB);
 		add(compBRBYG);
 		add(compInRYBText);
+		add(compInBRBYGText);
 		add(museumRoof);
 		add(_player);
 		add(ground);
 		add(_title);
 		add(_firstParagraph);
+		add(_secondParagraph);
+		add(_thirdParagraph);
 		//add(_canvas);
 		add(_vignette);
 		
+		
+		if (TextBegun._secondParagraphBegun)
+		{
+			_secondParagraph.start(0.03);
+			FlxG.log.add("Text Began");
+			_secondParagraph.skip();
+		}
+		if (TextBegun._thirdParagraphBegun)
+		{
+			_thirdParagraph.start(0.1);
+			_thirdParagraph.skip();
+		}
 		
 		super.create();
 	}
@@ -102,10 +142,21 @@ class PlayState extends FlxState
 	{
 		FlxG.collide(ground, _player);
 		
-		if (_player.x >= 680)
+		if (_player.x >= FlxG.width)
 		{
 			_firstParagraph.start(0.03);
 		}
+		if (_player.x >= FlxG.width * 2 && !TextBegun._secondParagraphBegun)
+		{
+			_secondParagraph.start(0.03);
+			TextBegun._secondParagraphBegun = true;
+		}
+		if (_player.x >= FlxG.width * 3 && !TextBegun._thirdParagraphBegun)
+		{
+			_thirdParagraph.start(0.03);
+			TextBegun._thirdParagraphBegun = true;
+		}
+		
 		
 		if (_player.x <= 5)
 		{
@@ -120,20 +171,40 @@ class PlayState extends FlxState
 				Player.X = Std.int(_player.x);
 				Player.Y = Std.int(_player.y);
 				
-				FlxG.camera.fade(FlxColor.BLACK, 1, false, fadeRYB);
-				
-				
+				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, fadeRYB);
 			}
 		}
 		else
 		{
 			compInRYBText.erase(0.05);
 		}
+		
+		if (FlxG.overlap(_player, compBRBYG))
+		{
+			compInBRBYGText.start(0.05);
+			if (FlxG.keys.anyJustPressed([UP, W, SPACE]))
+			{
+				Player.X = Std.int(_player.x);
+				Player.Y = Std.int(_player.y);
+				
+				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, fadeBRB);
+			}
+		}
+		else
+		{
+			compInBRBYGText.erase(0.05);
+		}
+		
 		super.update(elapsed);
 	}
 	
 	private function fadeRYB():Void
 	{
 		FlxG.switchState(new RBYState());
+	}
+	
+	private function fadeBRB():Void
+	{
+		FlxG.switchState(new BRBYGState());
 	}
 }
