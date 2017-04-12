@@ -68,6 +68,10 @@ class Player extends FlxSprite
 			velocity.x = -speed;
 		}
 		
+		if (FlxG.keys.pressed.R)
+		{
+			FlxG.resetGame();
+		}
 		
 		if (_up && !jumping)
 		{
