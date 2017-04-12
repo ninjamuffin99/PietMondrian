@@ -88,7 +88,7 @@ class TableauState extends FlxState
 		_firstParagraph.color = FlxColor.BLACK;
 		add(_firstParagraph);
 		
-		_secondParagraph = new FlxTypeText(FlxG.width * 0.35, FlxG.height * 1.6, Std.int(FlxG.width * 0.62), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor sem in sapien tempor, faucibus molestie eros viverra. Nullam commodo lacinia ex, in interdum orci dignissim sit amet. Nullam ultrices varius enim, quis auctor neque tempor nec. Aenean dignissim massa eget quam cursus cursus. Vestibulum sit amet molestie erat. Phasellus rutrum nulla non consequat semper. Aenean nec elit sapien.", 20);
+		_secondParagraph = new FlxTypeText(FlxG.width * 0.35, Std.int(FlxG.height * 1.55), Std.int(FlxG.width * 0.61), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor sem in sapien tempor, faucibus molestie eros viverra. Nullam commodo lacinia ex, in interdum orci dignissim sit amet. Nullam ultrices varius enim, quis auctor neque tempor nec. Aenean dignissim massa eget quam cursus cursus. Vestibulum sit amet molestie erat. Phasellus rutrum nulla non consequat semper. Aenean nec elit sapien.", 20);
 		_secondParagraph.font = "assets/data/Nexa Light.otf";
 		_secondParagraph.color = FlxColor.BLACK;
 		add(_secondParagraph);
@@ -159,6 +159,7 @@ class TableauState extends FlxState
 		
 		_vertLine4 = new FlxSprite(FlxG.width * 0.95, FlxG.width * 0.7);
 		_vertLine4.makeGraphic(lineThickness, Std.int(FlxG.height * 1.08), FlxColor.BLACK);
+		_vertLine4.immovable = true;
 		add(_vertLine4);
 		
 	}
