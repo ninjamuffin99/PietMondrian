@@ -25,6 +25,8 @@ class PlayState extends FlxState
 	private var _secondParagraph:FlxTypeText;
 	private var _thirdParagraph:FlxTypeText;
 	
+	private var listOfWorks:FlxText;
+	
 	private var compInRYB:FlxSprite;
 	private var compBRBYG:FlxSprite;
 	
@@ -93,6 +95,12 @@ class PlayState extends FlxState
 		_thirdParagraph.color = FlxColor.BLACK;
 		_thirdParagraph.setTypingVariation(0.1);
 		
+		listOfWorks = new FlxText(FlxG.width * 7.1, FlxG.height * 0.1, FlxG.width * 0.9, "List of Signifigant works \n Windmill In Sunlight (1908) \n Grey Tree (1911) \n Composition XIV Composition with Color Planes 5 (1917) \n Composition with Grey and Light Brown (1918) \n Composition with Large Red Plane, Yellow, Black, Gray and Blue (1921) \n Tableau I (1921) \n Composition A (1923) \n Composition with Red Blue and Yellow (1930) \n Composition in White, Black, and Red (1936) \n Composition with Red, Yellow and Blue (1942) \n Broadway Boogie Woogie (1943) \n Victory Boogie Woogie (1944)", 20);
+		listOfWorks.font = paragraphFont;
+		listOfWorks.color = FlxColor.BLACK;
+		
+
+		
 		
 		_canvas = new FlxSprite(0, 0);
 		_canvas.loadGraphic("assets/images/canvas.jpg", false, 800, 533);
@@ -119,6 +127,7 @@ class PlayState extends FlxState
 		add(_firstParagraph);
 		add(_secondParagraph);
 		add(_thirdParagraph);
+		add(listOfWorks);
 		//add(_canvas);
 		add(_vignette);
 		
