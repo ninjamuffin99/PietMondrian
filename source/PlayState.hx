@@ -26,6 +26,7 @@ class PlayState extends FlxState
 	private var _thirdParagraph:FlxTypeText;
 	
 	private var listOfWorks:FlxText;
+	private var listOfWorks2:FlxText;
 	
 	private var compInRYB:FlxSprite;
 	private var compBRBYG:FlxSprite;
@@ -95,9 +96,13 @@ class PlayState extends FlxState
 		_thirdParagraph.color = FlxColor.BLACK;
 		_thirdParagraph.setTypingVariation(0.1);
 		
-		listOfWorks = new FlxText(FlxG.width * 7.1, FlxG.height * 0.1, FlxG.width * 0.9, "List of Signifigant works \n Windmill In Sunlight (1908) \n Grey Tree (1911) \n Composition XIV Composition with Color Planes 5 (1917) \n Composition with Grey and Light Brown (1918) \n Composition with Large Red Plane, Yellow, Black, Gray and Blue (1921) \n Tableau I (1921) \n Composition A (1923) \n Composition with Red Blue and Yellow (1930) \n Composition in White, Black, and Red (1936) \n Composition with Red, Yellow and Blue (1942) \n Broadway Boogie Woogie (1943) \n Victory Boogie Woogie (1944)", 20);
+		listOfWorks = new FlxText(FlxG.width * 7.05, FlxG.height * 0.05, FlxG.width * 0.9, "List of Signifigant works \n \n Windmill In Sunlight (1908) \n \n Grey Tree (1911) \n \n Composition XIV Composition with Color Planes 5 (1917) \n \n Composition with Grey and Light Brown (1918) \n \n Composition with Large Red Plane, Yellow, Black, Gray and Blue (1921) \n \n ", 19);
 		listOfWorks.font = paragraphFont;
 		listOfWorks.color = FlxColor.BLACK;
+		
+		listOfWorks2 = new FlxText(FlxG.width * 8.05, FlxG.height * 0.05, FlxG.width * 0.9, "Tableau I (1921) \n \n Composition A (1923) \n \n Composition with Red Blue and Yellow (1930) \n \n Composition in White, Black, and Red (1936) \n \n Composition with Red, Yellow and Blue (1942) \n \n Broadway Boogie Woogie (1943) \n \n Victory Boogie Woogie (1944)", 19);
+		listOfWorks2.font = paragraphFont;
+		listOfWorks2.color = FlxColor.BLACK;
 		
 
 		
@@ -128,6 +133,7 @@ class PlayState extends FlxState
 		add(_secondParagraph);
 		add(_thirdParagraph);
 		add(listOfWorks);
+		add(listOfWorks2);
 		//add(_canvas);
 		add(_vignette);
 		
