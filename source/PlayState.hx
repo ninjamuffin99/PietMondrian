@@ -19,17 +19,20 @@ class PlayState extends FlxState
 	
 	private var compInRYBText:FlxTypeText;
 	private var compInBRBYGText:FlxTypeText;
+	private var tableau1Text:FlxTypeText;
 	
 	private var _title:FlxTypeText;
 	private var _firstParagraph:FlxTypeText;
 	private var _secondParagraph:FlxTypeText;
 	private var _thirdParagraph:FlxTypeText;
+	private var _fourthParagraph:FlxTypeText;
 	
 	private var listOfWorks:FlxText;
 	private var listOfWorks2:FlxText;
 	
 	private var compInRYB:FlxSprite;
 	private var compBRBYG:FlxSprite;
+	private var tableau1:FlxSprite;
 	
 	private var _canvas:FlxSprite;
 	private var _vignette:FlxSprite;
@@ -59,6 +62,9 @@ class PlayState extends FlxState
 		compBRBYG = new FlxSprite(FlxG.width * 3.8, FlxG.height - 120);
 		compBRBYG.loadGraphic("assets/images/compBRBYG.png", false, 64, 64);
 		
+		tableau1 = new FlxSprite(FlxG.width * 4.8, FlxG.height - 150);
+		tableau1.loadGraphic("assets/images/Tableau1.png", false, 66, 102);
+		
 		var ArtFont:String = "assets/data/NEXA BOLD.OTF";
 		
 		compInRYBText = new FlxTypeText(compInRYB.x - 300, compInRYB.y + 20, Std.int(FlxG.width * 0.5), "Composition II in Red Blue and Yellow, 1930", 16);
@@ -70,6 +76,11 @@ class PlayState extends FlxState
 		compInBRBYGText.color = FlxColor.BLACK;
 		compInBRBYGText.font = ArtFont;
 		compInBRBYGText.setTypingVariation(0.1);
+		
+		tableau1Text = new FlxTypeText(tableau1.x - 130, tableau1.y + 20, Std.int(FlxG.width * 0.4), "Tableau I, 1921", 16);
+		tableau1Text.color = FlxColor.BLACK;
+		tableau1Text.font = ArtFont;
+		tableau1Text.setTypingVariation(0.1);
 		
 		_title = new FlxTypeText(FlxG.width / 10, 110, Std.int(FlxG.width * 0.6), "Piet Mondrian", 80);
 		_title.font = "assets/data/NEXA BOLD.OTF";
@@ -95,6 +106,12 @@ class PlayState extends FlxState
 		_thirdParagraph.font = paragraphFont;
 		_thirdParagraph.color = FlxColor.BLACK;
 		_thirdParagraph.setTypingVariation(0.1);
+		
+		_fourthParagraph = new FlxTypeText(FlxG.width * 4.1, paragraphY, paragraphWidth, "It wasn’t until 1911 when Mondrian’s art became more abstract, when he moved to Paris, France and and became influenced by the cubist styles and works of Picasso and Braque.", 20);
+		_fourthParagraph.font = paragraphFont;
+		_fourthParagraph.color = FlxColor.BLACK;
+		_fourthParagraph.setTypingVariation(0.1);
+		
 		
 		listOfWorks = new FlxText(FlxG.width * 7.05, FlxG.height * 0.05, FlxG.width * 0.9, "List of Signifigant works \n \n Windmill In Sunlight (1908) \n \n Grey Tree (1911) \n \n Composition XIV Composition with Color Planes 5 (1917) \n \n Composition with Grey and Light Brown (1918) \n \n Composition with Large Red Plane, Yellow, Black, Gray and Blue (1921) \n \n ", 19);
 		listOfWorks.font = paragraphFont;
@@ -123,8 +140,10 @@ class PlayState extends FlxState
 		add(bg);
 		add(compInRYB);
 		add(compBRBYG);
+		add(tableau1);
 		add(compInRYBText);
 		add(compInBRBYGText);
+		add(tableau1Text);
 		add(museumRoof);
 		add(_player);
 		add(ground);
@@ -132,6 +151,7 @@ class PlayState extends FlxState
 		add(_firstParagraph);
 		add(_secondParagraph);
 		add(_thirdParagraph);
+		add(_fourthParagraph);
 		add(listOfWorks);
 		add(listOfWorks2);
 		//add(_canvas);
@@ -171,6 +191,13 @@ class PlayState extends FlxState
 			_thirdParagraph.start(0.03);
 			TextBegun._thirdParagraphBegun = true;
 		}
+		if (_player.x >= FlxG.width * 4 && !TextBegun._fourthParagraphbegun)
+		{
+			_fourthParagraph.start(0.03);
+			
+			TextBegun._fourthParagraphbegun = true;
+		}
+		
 		
 		
 		if (_player.x <= 5)
@@ -210,6 +237,20 @@ class PlayState extends FlxState
 			compInBRBYGText.erase(0.05);
 		}
 		
+		if (FlxG.overlap(_player, tableau1))
+		{
+			tableau1Text.start(0.05);
+			if (FlxG.keys.anyJustPressed([UP, W, SPACE]))
+			{
+				Player.X = Std.int(_player.x);
+				Player.Y = Std.int(_player.y);
+				
+				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, fadeTab);
+			}
+		}
+		else
+			tableau1Text.erase(0.05);
+		
 		super.update(elapsed);
 	}
 	
@@ -221,5 +262,10 @@ class PlayState extends FlxState
 	private function fadeBRB():Void
 	{
 		FlxG.switchState(new BRBYGState());
+	}
+	
+	private function fadeTab():Void
+	{
+		FlxG.switchState(new TableauState());
 	}
 }
