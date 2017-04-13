@@ -55,13 +55,14 @@ class BRBYGState extends FlxState
 		add(_horizLine1);
 		//_horizLine2 behind red
 		add(_horizLine3);
-		/*add(_horizLine4);
+		add(_horizLine4);
+		/*
 		add(_horizLine5);
 		add(_horizLine6);
 		*/
 		add(_vertLine1);
-		/*
 		add(_vertLine2);
+		/*
 		add(_vertLine4);*/
 		
 		
@@ -106,11 +107,13 @@ class BRBYGState extends FlxState
 		_horizLine3.immovable = true;
 		
 		
-		_horizLine4 = new FlxSprite(0, FlxG.height * 0.75);
-		_horizLine4.makeGraphic(FlxG.width, lineThickness, FlxColor.BLACK);
+		_horizLine4 = new FlxSprite(400, 359);
+		_horizLine4.makeGraphic(FlxG.width, 10, FlxColor.BLACK);
+		_horizLine4.immovable = true;
 		
-		_horizLine5 = new FlxSprite(FlxG.width * 0.1, FlxG.height * 0.9);
-		_horizLine5.makeGraphic(Std.int(FlxG.width * 0.5), lineThickness, FlxColor.BLACK);
+		_horizLine5 = new FlxSprite(235, 420);
+		_horizLine5.makeGraphic(150, lineThickness, FlxColor.BLACK);
+		_horizLine5.immovable = true;
 		
 		
 		_horizLine6 = new FlxSprite(FlxG.width * 0.55, FlxG.height * 0.1);
@@ -125,11 +128,12 @@ class BRBYGState extends FlxState
 		
 		_vertLine1 = new FlxSprite(70, 60);
 		_vertLine1.makeGraphic(lineThickness, 400, FlxColor.BLACK);
+		_vertLine1.immovable = true;
 		
 		
-		_vertLine2 = new FlxSprite(FlxG.width * 0.25, topPadding);
-		_vertLine2.makeGraphic(lineThickness, Std.int(FlxG.height * 0.1), FlxColor.BLACK);
-		
+		_vertLine2 = new FlxSprite(240, 300);
+		_vertLine2.makeGraphic(lineThickness, 110, FlxColor.BLACK);
+		_vertLine2.immovable = true;
 		
 		
 		_vertLine4 = new FlxSprite(FlxG.width * 0.55, topPadding);
@@ -142,6 +146,9 @@ class BRBYGState extends FlxState
 		FlxG.collide(_player, _horizLine1);
 		FlxG.collide(_player, _horizLine3);
 		FlxG.collide(_player, _vertLine1);
+		FlxG.collide(_player, _vertLine2);
+		FlxG.collide(_player, _horizLine4);
+		FlxG.collide(_player, _horizLine5);
 		
 		FlxG.watch.add(_horizLine2, "x");
 		FlxG.watch.add(_horizLine2, "y");
