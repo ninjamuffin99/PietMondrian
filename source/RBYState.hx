@@ -44,7 +44,7 @@ class RBYState extends FlxState
 		
 		makeArt();
 		
-		_secondParagraph = new FlxTypeText(FlxG.width * 0.25, FlxG.height * 0.1, Std.int(FlxG.width * 0.7), "Most of Mondrian’s early life was spent in the Netherlands, where he found art at an early age, as his father was a qualified art teacher, and he often painted with his uncle.", 20);
+		_secondParagraph = new FlxTypeText(FlxG.width * 0.25, FlxG.height * 0.1, Std.int(FlxG.width * 0.7), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor sem in sapien tempor, faucibus molestie eros viverra. Nullam commodo lacinia ex, in interdum orci dignissim sit amet. Nullam ultrices varius enim, quis auctor neque tempor nec. Aenean dignissim massa eget quam cursus cursus. Vestibulum sit amet molestie erat. Phasellus rutrum nulla non consequat semper. Aenean nec elit sapien.", 20);
 		_secondParagraph.font = "assets/data/Nexa Light.otf";
 		_secondParagraph.color = FlxColor.BLACK;
 		_secondParagraph.setTypingVariation(0.25);
