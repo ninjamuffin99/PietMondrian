@@ -39,7 +39,7 @@ class BRBYGState extends FlxState
 		FlxG.camera.fade(FlxColor.BLACK, 1, true);
 		
 		bg = new FlxSprite(0, 0);
-		bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
+		bg.loadGraphic("assets/images/BRBStateVEctor.png", false, 640, 480);
 		add(bg);
 		
 		makeColor();
@@ -49,19 +49,20 @@ class BRBYGState extends FlxState
 		
 		
 		add(_horizLine2);
-		add(_red);
-		add(_yellow);
+		/*add(_red);
+		add(_yellow);*/
 		
 		add(_horizLine1);
 		//_horizLine2 behind red
 		add(_horizLine3);
-		add(_horizLine4);
+		/*add(_horizLine4);
 		add(_horizLine5);
 		add(_horizLine6);
-		
+		*/
 		add(_vertLine1);
+		/*
 		add(_vertLine2);
-		add(_vertLine4);
+		add(_vertLine4);*/
 		
 		
 		_player = new Player(FlxG.width * 0.07, FlxG.height * 0.01);
@@ -90,23 +91,23 @@ class BRBYGState extends FlxState
 		var lineThickness:Int = Std.int(FlxG.height * 0.03);
 		var rightPadding:Int = Std.int(FlxG.width * 0.9);
 		
-		_horizLine1 = new FlxSprite(0, FlxG.height * 0.1);
-		_horizLine1.makeGraphic(Std.int(FlxG.width * 0.55), lineThickness, FlxColor.BLACK);
+		_horizLine1 = new FlxSprite(10, 50);
+		_horizLine1.makeGraphic(400, 10, FlxColor.BLACK);
 		_horizLine1.immovable = true;
 		
 		
-		_horizLine2 = new FlxSprite(0, FlxG.height * 0.4);
-		_horizLine2.makeGraphic(rightPadding, lineThickness, FlxColor.BLACK);
+		_horizLine2 = new FlxSprite(400, 170);
+		_horizLine2.makeGraphic(210, 10, FlxColor.BLACK);
 		_horizLine2.immovable = true;
 		
 		
-		_horizLine3 = new FlxSprite(FlxG.width * 0.1, FlxG.height * 0.6);
-		_horizLine3.makeGraphic(rightPadding, lineThickness, FlxColor.BLACK);
+		_horizLine3 = new FlxSprite(70, 297);
+		_horizLine3.makeGraphic(395 - 70, 302 - 297, FlxColor.BLACK);
+		_horizLine3.immovable = true;
 		
 		
 		_horizLine4 = new FlxSprite(0, FlxG.height * 0.75);
 		_horizLine4.makeGraphic(FlxG.width, lineThickness, FlxColor.BLACK);
-		
 		
 		_horizLine5 = new FlxSprite(FlxG.width * 0.1, FlxG.height * 0.9);
 		_horizLine5.makeGraphic(Std.int(FlxG.width * 0.5), lineThickness, FlxColor.BLACK);
@@ -122,8 +123,8 @@ class BRBYGState extends FlxState
 		var lineThickness:Int = Std.int(FlxG.width * 0.02);
 		var topPadding:Int = Std.int(FlxG.height * 0.025);
 		
-		_vertLine1 = new FlxSprite(FlxG.width * 0.1, FlxG.height * 0.1);
-		_vertLine1.makeGraphic(lineThickness, FlxG.height, FlxColor.BLACK);
+		_vertLine1 = new FlxSprite(70, 60);
+		_vertLine1.makeGraphic(lineThickness, 400, FlxColor.BLACK);
 		
 		
 		_vertLine2 = new FlxSprite(FlxG.width * 0.25, topPadding);
@@ -139,11 +140,19 @@ class BRBYGState extends FlxState
 	override public function update(elapsed:Float):Void 
 	{
 		FlxG.collide(_player, _horizLine1);
+		FlxG.collide(_player, _horizLine3);
+		FlxG.collide(_player, _vertLine1);
+		
+		FlxG.watch.add(_horizLine2, "x");
+		FlxG.watch.add(_horizLine2, "y");
+		
+		FlxG.watch.addMouse();
 		
 		if (!FlxG.overlap(_player, _red))
 		{
 			FlxG.collide(_player, _horizLine2);
 		}
+		
 		
 		
 		if (_player.y <= 3)

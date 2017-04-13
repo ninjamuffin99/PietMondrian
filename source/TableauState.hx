@@ -104,8 +104,9 @@ class TableauState extends FlxState
 		_vignette.alpha = 0.25;
 		add(_vignette);
 		
-		_groundInvisible = new FlxSprite(0, Std.int(FlxG.height * 2.4));
+		_groundInvisible = new FlxSprite(0, Std.int(FlxG.height * 2.48));
 		_groundInvisible.makeGraphic(FlxG.width, 1);
+		_groundInvisible.immovable = true;
 		_groundInvisible.alpha = 0;
 		add(_groundInvisible);
 		

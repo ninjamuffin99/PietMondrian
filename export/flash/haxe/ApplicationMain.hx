@@ -42,6 +42,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.FONT);
 		
 		
+		urls.push ("assets/images/BRBStateVEctor.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/canvas.jpg");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -167,7 +171,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "357",
+			build: "381",
 			company: "ninjaMuffin",
 			file: "PietMondrian",
 			fps: 60,
