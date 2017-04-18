@@ -66,10 +66,58 @@ class PlayState extends FlxState
 		tableau1 = new FlxSprite(FlxG.width * 4.8, FlxG.height - 150);
 		tableau1.loadGraphic("assets/images/Tableau1.png", false, 66, 102);
 		
-		compWhiteRed = new FlxSprite(FlxG.width * 5.8, FlxG.height - 110);
+		compWhiteRed = new FlxSprite(FlxG.width * 5.8, FlxG.height - 105);
 		compWhiteRed.loadGraphic("assets/images/compwhitesmall.png", false, 64, 48);
 		
 		
+		createWords();
+		
+		
+		_vignette = new FlxSprite();
+		_vignette.loadGraphic("assets/images/vignetteresized.png", false, 640, 480);
+		_vignette.scrollFactor.x = 0;
+		_vignette.alpha = 0.25;
+		
+		FlxG.camera.fade(FlxColor.BLACK, 1, true);
+		
+		add(bg);
+		add(compInRYB);
+		add(compBRBYG);
+		add(tableau1);
+		add(compInRYBText);
+		add(compInBRBYGText);
+		add(tableau1Text);
+		add(compWhiteRed);
+		add(museumRoof);
+		add(_player);
+		add(ground);
+		add(_title);
+		add(_firstParagraph);
+		add(_secondParagraph);
+		add(_thirdParagraph);
+		add(_fourthParagraph);
+		add(listOfWorks);
+		add(listOfWorks2);
+		add(_vignette);
+		
+		
+		if (TextBegun._secondParagraphBegun)
+		{
+			_secondParagraph.start(0.03);
+			FlxG.log.add("Text Began");
+			_secondParagraph.skip();
+		}
+		if (TextBegun._thirdParagraphBegun)
+		{
+			_thirdParagraph.start(0.1);
+			_thirdParagraph.skip();
+		}
+		
+		super.create();
+	}
+	
+	private function createWords():Void
+	{
 		var ArtFont:String = "assets/data/NEXA BOLD.OTF";
 		
 		compInRYBText = new FlxTypeText(compInRYB.x - 300, compInRYB.y + 20, Std.int(FlxG.width * 0.5), "Composition II in Red Blue and Yellow, 1930", 16);
@@ -125,58 +173,6 @@ class PlayState extends FlxState
 		listOfWorks2 = new FlxText(FlxG.width * 8.05, FlxG.height * 0.05, FlxG.width * 0.9, "Tableau I (1921) \n \n Composition A (1923) \n \n Composition with Red Blue and Yellow (1930) \n \n Composition in White, Black, and Red (1936) \n \n Composition with Red, Yellow and Blue (1942) \n \n Broadway Boogie Woogie (1943) \n \n Victory Boogie Woogie (1944)", 19);
 		listOfWorks2.font = paragraphFont;
 		listOfWorks2.color = FlxColor.BLACK;
-		
-
-		
-		
-		_canvas = new FlxSprite(0, 0);
-		_canvas.loadGraphic("assets/images/canvas.jpg", false, 800, 533);
-		_canvas.scrollFactor.x = _canvas.scrollFactor.y = 0;
-		_canvas.blend = BlendMode.SUBTRACT;
-		_canvas.alpha = 0.5;
-		
-		_vignette = new FlxSprite();
-		_vignette.loadGraphic("assets/images/vignetteresized.png", false, 640, 480);
-		_vignette.scrollFactor.x = 0;
-		_vignette.alpha = 0.25;
-		
-		FlxG.camera.fade(FlxColor.BLACK, 1, true);
-		
-		add(bg);
-		add(compInRYB);
-		add(compBRBYG);
-		add(tableau1);
-		add(compInRYBText);
-		add(compInBRBYGText);
-		add(tableau1Text);
-		add(compWhiteRed);
-		add(museumRoof);
-		add(_player);
-		add(ground);
-		add(_title);
-		add(_firstParagraph);
-		add(_secondParagraph);
-		add(_thirdParagraph);
-		add(_fourthParagraph);
-		add(listOfWorks);
-		add(listOfWorks2);
-		//add(_canvas);
-		add(_vignette);
-		
-		
-		if (TextBegun._secondParagraphBegun)
-		{
-			_secondParagraph.start(0.03);
-			FlxG.log.add("Text Began");
-			_secondParagraph.skip();
-		}
-		if (TextBegun._thirdParagraphBegun)
-		{
-			_thirdParagraph.start(0.1);
-			_thirdParagraph.skip();
-		}
-		
-		super.create();
 	}
 
 	override public function update(elapsed:Float):Void
