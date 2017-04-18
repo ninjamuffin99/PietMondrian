@@ -58,6 +58,14 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/compwhitesmall.ase");
+		types.push (lime.Assets.AssetType.BINARY);
+		
+		
+		urls.push ("assets/images/compwhitesmall.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/CompWithRBY.ase");
 		types.push (lime.Assets.AssetType.BINARY);
 		
@@ -175,7 +183,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "400",
+			build: "413",
 			company: "ninjaMuffin",
 			file: "PietMondrian",
 			fps: 60,

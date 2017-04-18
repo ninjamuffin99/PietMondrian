@@ -33,6 +33,7 @@ class PlayState extends FlxState
 	private var compInRYB:FlxSprite;
 	private var compBRBYG:FlxSprite;
 	private var tableau1:FlxSprite;
+	private var compWhiteRed:FlxSprite;
 	
 	private var _canvas:FlxSprite;
 	private var _vignette:FlxSprite;
@@ -64,6 +65,10 @@ class PlayState extends FlxState
 		
 		tableau1 = new FlxSprite(FlxG.width * 4.8, FlxG.height - 150);
 		tableau1.loadGraphic("assets/images/Tableau1.png", false, 66, 102);
+		
+		compWhiteRed = new FlxSprite(FlxG.width * 5.8, FlxG.height - 110);
+		compWhiteRed.loadGraphic("assets/images/compwhitesmall.png", false, 64, 48);
+		
 		
 		var ArtFont:String = "assets/data/NEXA BOLD.OTF";
 		
@@ -144,6 +149,7 @@ class PlayState extends FlxState
 		add(compInRYBText);
 		add(compInBRBYGText);
 		add(tableau1Text);
+		add(compWhiteRed);
 		add(museumRoof);
 		add(_player);
 		add(ground);
@@ -251,6 +257,17 @@ class PlayState extends FlxState
 		else
 			tableau1Text.erase(0.05);
 		
+		if (FlxG.overlap(_player, compWhiteRed))
+		{
+			if (FlxG.keys.anyJustPressed([UP, W, SPACE]))
+			{
+				Player.X = Std.int(_player.x);
+				Player.Y = Std.int(_player.y);
+				
+				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, fadeCompWhite);
+			}
+		}
+		
 		super.update(elapsed);
 	}
 	
@@ -267,5 +284,10 @@ class PlayState extends FlxState
 	private function fadeTab():Void
 	{
 		FlxG.switchState(new TableauState());
+	}
+	
+	private function fadeCompWhite():Void
+	{
+		FlxG.switchState(new CompWhiteRed());
 	}
 }

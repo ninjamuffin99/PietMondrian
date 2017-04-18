@@ -68,6 +68,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -91,6 +93,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/compBRBYG.png", AssetType.IMAGE);
 		className.set ("assets/images/CompWhiteRedVECTOR.png", __ASSET__assets_images_compwhiteredvector_png);
 		type.set ("assets/images/CompWhiteRedVECTOR.png", AssetType.IMAGE);
+		className.set ("assets/images/compwhitesmall.ase", __ASSET__assets_images_compwhitesmall_ase);
+		type.set ("assets/images/compwhitesmall.ase", AssetType.BINARY);
+		className.set ("assets/images/compwhitesmall.png", __ASSET__assets_images_compwhitesmall_png);
+		type.set ("assets/images/compwhitesmall.png", AssetType.IMAGE);
 		className.set ("assets/images/CompWithRBY.ase", __ASSET__assets_images_compwithrby_ase);
 		type.set ("assets/images/CompWithRBY.ase", AssetType.BINARY);
 		className.set ("assets/images/CompWithRBY.png", __ASSET__assets_images_compwithrby_png);
@@ -149,6 +155,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/CompWhiteRedVECTOR.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/compwhitesmall.ase";
+		path.set (id, id);
+		
+		type.set (id, AssetType.BINARY);
+		id = "assets/images/compwhitesmall.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -246,6 +260,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/CompWhiteRedVECTOR.png", __ASSET__assets_images_compwhiteredvector_png);
 		type.set ("assets/images/CompWhiteRedVECTOR.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/compwhitesmall.ase", __ASSET__assets_images_compwhitesmall_ase);
+		type.set ("assets/images/compwhitesmall.ase", AssetType.BINARY);
+		
+		className.set ("assets/images/compwhitesmall.png", __ASSET__assets_images_compwhitesmall_png);
+		type.set ("assets/images/compwhitesmall.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/CompWithRBY.ase", __ASSET__assets_images_compwithrby_ase);
 		type.set ("assets/images/CompWithRBY.ase", AssetType.BINARY);
@@ -940,6 +960,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_canvas_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_compbrbyg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_compwhiteredvector_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_compwhitesmall_ase extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_images_compwhitesmall_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_compwithrby_ase extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_compwithrby_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_images_go_here_txt extends flash.utils.ByteArray { }
@@ -975,6 +997,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
 @:keep #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
 @:keep #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font { public function new () { super (); name = "Monsterrat"; } } 
 
@@ -995,6 +1019,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/images/canvas.jpg") #if display private #end class __ASSET__assets_images_canvas_jpg extends lime.graphics.Image {}
 @:image("assets/images/compBRBYG.png") #if display private #end class __ASSET__assets_images_compbrbyg_png extends lime.graphics.Image {}
 @:image("assets/images/CompWhiteRedVECTOR.png") #if display private #end class __ASSET__assets_images_compwhiteredvector_png extends lime.graphics.Image {}
+@:file("assets/images/compwhitesmall.ase") #if display private #end class __ASSET__assets_images_compwhitesmall_ase extends lime.utils.Bytes {}
+@:image("assets/images/compwhitesmall.png") #if display private #end class __ASSET__assets_images_compwhitesmall_png extends lime.graphics.Image {}
 @:file("assets/images/CompWithRBY.ase") #if display private #end class __ASSET__assets_images_compwithrby_ase extends lime.utils.Bytes {}
 @:image("assets/images/CompWithRBY.png") #if display private #end class __ASSET__assets_images_compwithrby_png extends lime.graphics.Image {}
 @:file("assets/images/images-go-here.txt") #if display private #end class __ASSET__assets_images_images_go_here_txt extends lime.utils.Bytes {}
