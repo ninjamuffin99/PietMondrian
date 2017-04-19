@@ -16,6 +16,7 @@ class BRBYGState extends FlxState
 	
 	private var _red:FlxSprite;
 	private var _yellow:FlxSprite;
+	private var _blue:FlxSprite;
 	
 	private var _horizLine1:FlxSprite;
 	private var _horizLine2:FlxSprite;
@@ -37,6 +38,10 @@ class BRBYGState extends FlxState
 	override public function create():Void 
 	{
 		FlxG.camera.fade(FlxColor.BLACK, 1, true);
+		
+		_blue = new FlxSprite(400, 365);
+		_blue.makeGraphic(200, 100);
+		add(_blue);
 		
 		bg = new FlxSprite(0, 0);
 		bg.loadGraphic("assets/images/BRBStateVEctor.png", false, 640, 480);
@@ -160,7 +165,10 @@ class BRBYGState extends FlxState
 			FlxG.collide(_player, _horizLine2);
 		}
 		
-		
+		if (FlxG.overlap(_player, _blue))
+		{
+			FlxG.camera.fade(FlxColor.BLACK, 1, false, fadeOut);
+		}
 		
 		if (_player.y <= 3)
 		{
@@ -172,5 +180,10 @@ class BRBYGState extends FlxState
 		}
 		
 		super.update(elapsed);
+	}
+	
+	private function fadeOut():Void
+	{
+		FlxG.switchState(new PlayState());
 	}
 }

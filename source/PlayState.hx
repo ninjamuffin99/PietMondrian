@@ -28,6 +28,7 @@ class PlayState extends FlxState
 	private var _thirdParagraph:FlxTypeText;
 	private var _fourthParagraph:FlxTypeText;
 	private var _fifthParagraph:FlxTypeText;
+	private var _sixthParagraph:FlxTypeText;
 	
 	private var listOfWorks:FlxText;
 	private var listOfWorks2:FlxText;
@@ -113,6 +114,7 @@ class PlayState extends FlxState
 		add(_thirdParagraph);
 		add(_fourthParagraph);
 		add(_fifthParagraph);
+		add(_sixthParagraph);
 		
 		add(listOfWorks);
 		add(listOfWorks2);
@@ -194,6 +196,11 @@ class PlayState extends FlxState
 		_fifthParagraph.color = FlxColor.BLACK;
 		_fifthParagraph.setTypingVariation(0.1);
 		
+		_sixthParagraph = new FlxTypeText(FlxG.width * 6.1, paragraphY, paragraphWidth, "Mondrian left The Netherlands for London, but after only 2 years, he moved to Manhattan, New York. The black lines of his older works have now been replaced with colored ones, however the primary colored squares and rectangles stayed the same.", 20);
+		_sixthParagraph.font = paragraphFont;
+		_sixthParagraph.color = FlxColor.BLACK;
+		_sixthParagraph.setTypingVariation(0.1);
+		
 		
 		listOfWorks = new FlxText(FlxG.width * 7.05, FlxG.height * 0.05, FlxG.width * 0.9, "List of Signifigant works \n \n Windmill In Sunlight (1908) \n \n Grey Tree (1911) \n \n Composition XIV Composition with Color Planes 5 (1917) \n \n Composition with Grey and Light Brown (1918) \n \n Composition with Large Red Plane, Yellow, Black, Gray and Blue (1921) \n \n ", 19);
 		listOfWorks.font = paragraphFont;
@@ -238,6 +245,13 @@ class PlayState extends FlxState
 			_fifthParagraph.start(0.03);
 			
 			TextBegun._fifthParagraphbegun = true;
+		}
+		
+		if (_player.x >= FlxG.width * 6 && !TextBegun._sixthParagraphbegun)
+		{
+			_sixthParagraph.start(0.03);
+			
+			TextBegun._sixthParagraphbegun = true;
 		}
 		
 		

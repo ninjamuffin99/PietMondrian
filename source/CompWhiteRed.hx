@@ -49,8 +49,6 @@ class CompWhiteRed extends FlxState
 		
 		makeLines();
 		
-		
-		
 		_vignette = new FlxSprite(0, 0);
 		_vignette.loadGraphic("assets/images/vignetteresized.png", false, 640, 480);
 		_vignette.alpha = 0.25;
