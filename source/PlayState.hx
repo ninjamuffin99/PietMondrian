@@ -20,12 +20,14 @@ class PlayState extends FlxState
 	private var compInRYBText:FlxTypeText;
 	private var compInBRBYGText:FlxTypeText;
 	private var tableau1Text:FlxTypeText;
+	private var CompWhiteText:FlxTypeText;
 	
 	private var _title:FlxTypeText;
 	private var _firstParagraph:FlxTypeText;
 	private var _secondParagraph:FlxTypeText;
 	private var _thirdParagraph:FlxTypeText;
 	private var _fourthParagraph:FlxTypeText;
+	private var _fifthParagraph:FlxTypeText;
 	
 	private var listOfWorks:FlxText;
 	private var listOfWorks2:FlxText;
@@ -94,6 +96,7 @@ class PlayState extends FlxState
 		add(compInRYBText);
 		add(compInBRBYGText);
 		add(tableau1Text);
+		add(CompWhiteText);
 		
 		add(museumRoof);
 		add(_player);
@@ -104,6 +107,7 @@ class PlayState extends FlxState
 		add(_secondParagraph);
 		add(_thirdParagraph);
 		add(_fourthParagraph);
+		add(_fifthParagraph);
 		
 		add(listOfWorks);
 		add(listOfWorks2);
@@ -144,6 +148,11 @@ class PlayState extends FlxState
 		tableau1Text.font = ArtFont;
 		tableau1Text.setTypingVariation(0.1);
 		
+		CompWhiteText = new FlxTypeText(compWhiteRed.x - 250, compWhiteRed.y + 10, Std.int(FlxG.width * 0.4), "Composition in Black White and Red, 1936", 16);
+		CompWhiteText.color = FlxColor.BLACK;
+		CompWhiteText.font = ArtFont;
+		CompWhiteText.setTypingVariation(0.1);
+		
 		_title = new FlxTypeText(FlxG.width / 10, 110, Std.int(FlxG.width * 0.6), "Piet Mondrian", 80);
 		_title.font = "assets/data/NEXA BOLD.OTF";
 		_title.color = FlxColor.BLACK;
@@ -173,6 +182,11 @@ class PlayState extends FlxState
 		_fourthParagraph.font = paragraphFont;
 		_fourthParagraph.color = FlxColor.BLACK;
 		_fourthParagraph.setTypingVariation(0.1);
+		
+		_fifthParagraph = new FlxTypeText(FlxG.width * 5.1, paragraphY, paragraphWidth, "He moved back to The Netherlands in 1914, due to the fact that World War 1 had begun. He met Bart van der Leck and Theo van Doesburg at the Laren artist’s colony, where the three stayed. Mondrian, with Van der Leck, founded De Stijl.", 20);
+		_fifthParagraph.font = paragraphFont;
+		_fifthParagraph.color = FlxColor.BLACK;
+		_fifthParagraph.setTypingVariation(0.1);
 		
 		
 		listOfWorks = new FlxText(FlxG.width * 7.05, FlxG.height * 0.05, FlxG.width * 0.9, "List of Signifigant works \n \n Windmill In Sunlight (1908) \n \n Grey Tree (1911) \n \n Composition XIV Composition with Color Planes 5 (1917) \n \n Composition with Grey and Light Brown (1918) \n \n Composition with Large Red Plane, Yellow, Black, Gray and Blue (1921) \n \n ", 19);
@@ -207,6 +221,13 @@ class PlayState extends FlxState
 			_fourthParagraph.start(0.03);
 			
 			TextBegun._fourthParagraphbegun = true;
+		}
+		
+		if (_player.x >= FlxG.width * 5 && !TextBegun._fifthParagraphbegun)
+		{
+			_fifthParagraph.start(0.03);
+			
+			TextBegun._fifthParagraphbegun = true;
 		}
 		
 		
@@ -264,6 +285,7 @@ class PlayState extends FlxState
 		
 		if (FlxG.overlap(_player, compWhiteRed))
 		{
+			CompWhiteText.start(0.05);
 			if (FlxG.keys.anyJustPressed([UP, W, SPACE]))
 			{
 				Player.X = Std.int(_player.x);
@@ -272,6 +294,8 @@ class PlayState extends FlxState
 				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, fadeCompWhite);
 			}
 		}
+		else
+			CompWhiteText.erase(0.05);
 		
 		if (FlxG.overlap(_player, CompA))
 		{
