@@ -32,6 +32,8 @@ class PlayState extends FlxState
 	private var listOfWorks:FlxText;
 	private var listOfWorks2:FlxText;
 	
+	private var credits:FlxText;
+	
 	private var compInRYB:FlxSprite;
 	private var compBRBYG:FlxSprite;
 	private var tableau1:FlxSprite;
@@ -49,7 +51,10 @@ class PlayState extends FlxState
 		
 		FlxG.worldBounds.set(0, 0, FlxG.width * 10, 480);
 		
-		FlxG.sound.playMusic("assets/music/A2-01.mp3", 0.2, true);
+		if (FlxG.sound.music == null)
+		{
+			FlxG.sound.playMusic("assets/music/A2-01.mp3", 0.3, true);
+		}
 		
 		_player = new Player(Player.X, Player.Y);
 		
@@ -111,6 +116,7 @@ class PlayState extends FlxState
 		
 		add(listOfWorks);
 		add(listOfWorks2);
+		add(credits);
 		add(_vignette);
 		
 		
@@ -196,6 +202,10 @@ class PlayState extends FlxState
 		listOfWorks2 = new FlxText(FlxG.width * 8.05, FlxG.height * 0.05, FlxG.width * 0.9, "Tableau I (1921) \n \n Composition A (1923) \n \n Composition with Red Blue and Yellow (1930) \n \n Composition in White, Black, and Red (1936) \n \n Composition with Red, Yellow and Blue (1942) \n \n Broadway Boogie Woogie (1943) \n \n Victory Boogie Woogie (1944)", 19);
 		listOfWorks2.font = paragraphFont;
 		listOfWorks2.color = FlxColor.BLACK;
+		
+		credits = new FlxText(FlxG.width * 9.1, paragraphY, FlxG.width * 0.85, "Made by Cameron Taylor \n\n Song: A2-01 by DrFunkMonkey goo.gl/OIYGnV \n\n  (c) 2017 Mondrian/Holtzman Trust ", 20);
+		credits.font = paragraphFont;
+		credits.color = FlxColor.BLACK;
 	}
 
 	override public function update(elapsed:Float):Void
