@@ -70,6 +70,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -89,6 +91,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/BRBStateVEctor.png", AssetType.IMAGE);
 		className.set ("assets/images/canvas.jpg", __ASSET__assets_images_canvas_jpg);
 		type.set ("assets/images/canvas.jpg", AssetType.IMAGE);
+		className.set ("assets/images/CompAPixel.png", __ASSET__assets_images_compapixel_png);
+		type.set ("assets/images/CompAPixel.png", AssetType.IMAGE);
+		className.set ("assets/images/CompAVector.png", __ASSET__assets_images_compavector_png);
+		type.set ("assets/images/CompAVector.png", AssetType.IMAGE);
 		className.set ("assets/images/compBRBYG.png", __ASSET__assets_images_compbrbyg_png);
 		type.set ("assets/images/compBRBYG.png", AssetType.IMAGE);
 		className.set ("assets/images/CompWhiteRedVECTOR.png", __ASSET__assets_images_compwhiteredvector_png);
@@ -147,6 +153,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/canvas.jpg";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/CompAPixel.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/CompAVector.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -254,6 +268,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/canvas.jpg", __ASSET__assets_images_canvas_jpg);
 		type.set ("assets/images/canvas.jpg", AssetType.IMAGE);
+		
+		className.set ("assets/images/CompAPixel.png", __ASSET__assets_images_compapixel_png);
+		type.set ("assets/images/CompAPixel.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/CompAVector.png", __ASSET__assets_images_compavector_png);
+		type.set ("assets/images/CompAVector.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/compBRBYG.png", __ASSET__assets_images_compbrbyg_png);
 		type.set ("assets/images/compBRBYG.png", AssetType.IMAGE);
@@ -958,6 +978,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_data_nexa_light_otf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_brbstatevector_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_canvas_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_compapixel_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_compavector_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_compbrbyg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_compwhiteredvector_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_compwhitesmall_ase extends flash.utils.ByteArray { }
@@ -999,6 +1021,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
 @:keep #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
 @:keep #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font { public function new () { super (); name = "Monsterrat"; } } 
 
@@ -1017,6 +1041,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:font("assets/data/Nexa Light.otf") #if display private #end class __ASSET__assets_data_nexa_light_otf extends lime.text.Font {}
 @:image("assets/images/BRBStateVEctor.png") #if display private #end class __ASSET__assets_images_brbstatevector_png extends lime.graphics.Image {}
 @:image("assets/images/canvas.jpg") #if display private #end class __ASSET__assets_images_canvas_jpg extends lime.graphics.Image {}
+@:image("assets/images/CompAPixel.png") #if display private #end class __ASSET__assets_images_compapixel_png extends lime.graphics.Image {}
+@:image("assets/images/CompAVector.png") #if display private #end class __ASSET__assets_images_compavector_png extends lime.graphics.Image {}
 @:image("assets/images/compBRBYG.png") #if display private #end class __ASSET__assets_images_compbrbyg_png extends lime.graphics.Image {}
 @:image("assets/images/CompWhiteRedVECTOR.png") #if display private #end class __ASSET__assets_images_compwhiteredvector_png extends lime.graphics.Image {}
 @:file("assets/images/compwhitesmall.ase") #if display private #end class __ASSET__assets_images_compwhitesmall_ase extends lime.utils.Bytes {}

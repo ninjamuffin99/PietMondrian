@@ -50,6 +50,14 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/CompAPixel.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/CompAVector.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/compBRBYG.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -183,7 +191,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "415",
+			build: "443",
 			company: "ninjaMuffin",
 			file: "PietMondrian",
 			fps: 60,

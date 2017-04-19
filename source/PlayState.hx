@@ -34,6 +34,7 @@ class PlayState extends FlxState
 	private var compBRBYG:FlxSprite;
 	private var tableau1:FlxSprite;
 	private var compWhiteRed:FlxSprite;
+	private var CompA:FlxSprite;
 	
 	private var _canvas:FlxSprite;
 	private var _vignette:FlxSprite;
@@ -69,6 +70,9 @@ class PlayState extends FlxState
 		compWhiteRed = new FlxSprite(FlxG.width * 5.8, FlxG.height - 105);
 		compWhiteRed.loadGraphic("assets/images/compwhitesmall.png", false, 64, 48);
 		
+		CompA = new FlxSprite(FlxG.width * 6.8, FlxG.height - 120);
+		CompA.loadGraphic("assets/images/CompAPixel.png", false, 66, 66);
+		
 		
 		createWords();
 		
@@ -84,18 +88,23 @@ class PlayState extends FlxState
 		add(compInRYB);
 		add(compBRBYG);
 		add(tableau1);
+		add(CompA);
+		add(compWhiteRed);
+		
 		add(compInRYBText);
 		add(compInBRBYGText);
 		add(tableau1Text);
-		add(compWhiteRed);
+		
 		add(museumRoof);
 		add(_player);
 		add(ground);
+		
 		add(_title);
 		add(_firstParagraph);
 		add(_secondParagraph);
 		add(_thirdParagraph);
 		add(_fourthParagraph);
+		
 		add(listOfWorks);
 		add(listOfWorks2);
 		add(_vignette);
@@ -264,6 +273,17 @@ class PlayState extends FlxState
 			}
 		}
 		
+		if (FlxG.overlap(_player, CompA))
+		{
+			if (FlxG.keys.anyJustPressed([UP, W, SPACE]))
+			{
+				Player.X = Std.int(_player.x);
+				Player.Y = Std.int(_player.y);
+				
+				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, fadeCompA);
+			}
+		}
+		
 		super.update(elapsed);
 	}
 	
@@ -285,5 +305,10 @@ class PlayState extends FlxState
 	private function fadeCompWhite():Void
 	{
 		FlxG.switchState(new CompWhiteRed());
+	}
+	
+	private function fadeCompA():Void
+	{
+		FlxG.switchState(new CompAState());
 	}
 }
