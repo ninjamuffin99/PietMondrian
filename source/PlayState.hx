@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.addons.text.FlxTypeText;
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
@@ -44,8 +45,12 @@ class PlayState extends FlxState
 	private var _canvas:FlxSprite;
 	private var _vignette:FlxSprite;
 	
+	private var _grpArt:FlxTypedGroup<ArtSprite>;
+	
 	override public function create():Void
 	{
+		FlxG.mouse.visible = false;
+		
 		bg = new FlxSprite(0, 0);
 		bg.makeGraphic(FlxG.width, FlxG.width);
 		bg.scrollFactor.x = bg.scrollFactor.y = 0;
@@ -58,6 +63,11 @@ class PlayState extends FlxState
 		}
 		
 		_player = new Player(Player.X, Player.Y);
+		
+		_grpArt = new FlxTypedGroup<ArtSprite>();
+		
+		var artTest:ArtSprite = new ArtSprite(400, FlxG.height - 80, "assets/images/CompAPixel.png", "composition a some more tesxt tlfsfdas");
+		
 		
 		ground = new FlxSprite(0, FlxG.height - 20);
 		ground.makeGraphic(FlxG.width * 10, 15, FlxColor.BLACK);
@@ -93,6 +103,11 @@ class PlayState extends FlxState
 		FlxG.camera.fade(FlxColor.BLACK, 1, true);
 		
 		add(bg);
+		
+		add(_grpArt);
+		
+		_grpArt.add(artTest);
+		
 		add(compInRYB);
 		add(compBRBYG);
 		add(tableau1);
@@ -139,7 +154,7 @@ class PlayState extends FlxState
 	
 	private function createWords():Void
 	{
-		var ArtFont:String = "assets/data/NEXA BOLD.OTF";
+		
 		
 		compInRYBText = new FlxTypeText(compInRYB.x - 300, compInRYB.y + 20, Std.int(FlxG.width * 0.5), "Composition II in Red Blue and Yellow, 1930", 16);
 		compInRYBText.color = FlxColor.BLACK;
@@ -215,9 +230,23 @@ class PlayState extends FlxState
 		credits.color = FlxColor.BLACK;
 	}
 
+	private function artChecks(a:ArtSprite):Void
+	{
+		if (FlxG.overlap(_player, a))
+		{
+			a.txtInfo.start(0.05);
+		}
+		else
+		{
+			a.txtInfo.erase(0.05);
+		}
+	}
+	
 	override public function update(elapsed:Float):Void
 	{
 		FlxG.collide(ground, _player);
+		
+		_grpArt.forEach(artChecks);
 		
 		if (_player.x >= FlxG.width)
 		{
