@@ -24,7 +24,7 @@ class ArtSprite extends FlxSpriteGroup
 		sprArt = new FlxSprite(X, Y).loadGraphic(artPath, false);
 		add(sprArt);
 		
-		txtInfo = new FlxTypeText(sprArt.x - 285, sprArt.y + 20, artInfo.length * 6, artInfo, 16);
+		txtInfo = new FlxTypeText(sprArt.x - ((artInfo.length * 4) + 30), sprArt.y + 20, (artInfo.length * 4) + 20, artInfo, 16);
 		txtInfo.color = FlxColor.BLACK;
 		txtInfo.font = "assets/data/NEXA BOLD.OTF";
 		add(txtInfo);

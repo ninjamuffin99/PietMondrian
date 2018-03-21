@@ -36,8 +36,6 @@ class PlayState extends FlxState
 	
 	private var credits:FlxText;
 	
-	private var compBRBYG:FlxSprite;
-	private var tableau1:FlxSprite;
 	private var compWhiteRed:FlxSprite;
 	private var CompA:FlxSprite;
 	
@@ -80,13 +78,8 @@ class PlayState extends FlxState
 		var compInRYB:ArtSprite = new ArtSprite(FlxG.width * 2.8, artHeight, "assets/images/CompWithRBY.png", "Composition II in Red Blue and Yellow, 1930");
 		var compBRBYG:ArtSprite = new ArtSprite(FlxG.width * 3.8, artHeight, "assets/images/compBRBYG.png", "Composition with Large Red Plane, Yellow, Black, Gray and Blue (1921)");
 		var tableau1:ArtSprite = new ArtSprite(FlxG.width * 4.8, artHeight, "assets/images/Tableau1.png", "Tableau I, 1921");
-		
-		compWhiteRed = new FlxSprite(FlxG.width * 5.8, FlxG.height - 105);
-		compWhiteRed.loadGraphic("assets/images/compwhitesmall.png", false, 64, 48);
-		
-		CompA = new FlxSprite(FlxG.width * 6.8, FlxG.height - 120);
-		CompA.loadGraphic("assets/images/CompAPixel.png", false, 66, 66);
-		
+		var compWhiteRed:ArtSprite = new ArtSprite(FlxG.width * 5.8, artHeight, "assets/images/compwhitesmall.png", "Composition in Black White and Red, 1936");
+		var CompA:ArtSprite = new ArtSprite(FlxG.width * 6.8, artHeight, "assets/images/CompAPixel.png", "Composition A, 1923");
 		
 		createWords();
 		
@@ -105,9 +98,8 @@ class PlayState extends FlxState
 		_grpArt.add(compInRYB);
 		_grpArt.add(compBRBYG);
 		_grpArt.add(tableau1);
-		
-		add(CompA);
-		add(compWhiteRed);
+		_grpArt.add(compWhiteRed);
+		_grpArt.add(CompA);
 		
 		add(compInRYBText);
 		add(compInBRBYGText);
@@ -150,11 +142,6 @@ class PlayState extends FlxState
 	private function createWords():Void
 	{
 		var ArtFont:String = "";
-		
-		CompWhiteText = new FlxTypeText(compWhiteRed.x - 250, compWhiteRed.y + 10, Std.int(FlxG.width * 0.4), "Composition in Black White and Red, 1936", 16);
-		CompWhiteText.color = FlxColor.BLACK;
-		CompWhiteText.font = ArtFont;
-		CompWhiteText.setTypingVariation(0.1);
 		
 		_title = new FlxTypeText(FlxG.width / 10, 110, Std.int(FlxG.width * 0.6), "Piet Mondrian", 80);
 		_title.font = "assets/data/NEXA BOLD.OTF";
@@ -287,31 +274,6 @@ class PlayState extends FlxState
 			compInRYBText.erase(0.05);
 		}
 		*/
-		
-		if (FlxG.overlap(_player, compWhiteRed))
-		{
-			CompWhiteText.start(0.05);
-			if (FlxG.keys.anyJustPressed([UP, W, SPACE]))
-			{
-				Player.X = Std.int(_player.x);
-				Player.Y = Std.int(_player.y);
-				
-				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, fadeCompWhite);
-			}
-		}
-		else
-			CompWhiteText.erase(0.05);
-		
-		if (FlxG.overlap(_player, CompA))
-		{
-			if (FlxG.keys.anyJustPressed([UP, W, SPACE]))
-			{
-				Player.X = Std.int(_player.x);
-				Player.Y = Std.int(_player.y);
-				
-				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, fadeCompA);
-			}
-		}
 		
 		super.update(elapsed);
 	}
