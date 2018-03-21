@@ -197,15 +197,15 @@ class PlayState extends FlxState
 		_sixthParagraph.setTypingVariation(0.1);
 		
 		
-		listOfWorks = new FlxText(FlxG.width * 7.05, FlxG.height * 0.05, FlxG.width * 0.9, "List of Signifigant works \n \n Windmill In Sunlight (1908) \n \n Grey Tree (1911) \n \n Composition XIV Composition with Color Planes 5 (1917) \n \n Composition with Grey and Light Brown (1918) \n \n Composition with Large Red Plane, Yellow, Black, Gray and Blue (1921) \n \n ", 19);
+		listOfWorks = new FlxText(FlxG.width * 7.05, FlxG.height * 0.05, FlxG.width * 0.9, "List of Signifigant works \n\nWindmill In Sunlight (1908) \n\nGrey Tree (1911) \n\nComposition XIV Composition with Color Planes 5 (1917) \n\nComposition with Grey and Light Brown (1918) \n\nComposition with Large Red Plane, Yellow, Black, Gray and Blue (1921) \n\n", 19);
 		listOfWorks.font = paragraphFont;
 		listOfWorks.color = FlxColor.BLACK;
 		
-		listOfWorks2 = new FlxText(FlxG.width * 8.05, FlxG.height * 0.05, FlxG.width * 0.9, "Tableau I (1921) \n \n Composition A (1923) \n \n Composition with Red Blue and Yellow (1930) \n \n Composition in White, Black, and Red (1936) \n \n Composition with Red, Yellow and Blue (1942) \n \n Broadway Boogie Woogie (1943) \n \n Victory Boogie Woogie (1944)", 19);
+		listOfWorks2 = new FlxText(FlxG.width * 8.05, FlxG.height * 0.05, FlxG.width * 0.9, "Tableau I (1921) \n\nComposition A (1923) \n\nComposition with Red Blue and Yellow (1930) \n\nComposition in White, Black, and Red (1936) \n\nComposition with Red, Yellow and Blue (1942) \n\nBroadway Boogie Woogie (1943) \n \n Victory Boogie Woogie (1944)", 19);
 		listOfWorks2.font = paragraphFont;
 		listOfWorks2.color = FlxColor.BLACK;
 		
-		credits = new FlxText(FlxG.width * 9.1, paragraphY, FlxG.width * 0.85, "Made by Cameron Taylor \n\n Song: A2-01 by DrFunkMonkey goo.gl/OIYGnV \n\n  (c) 2017 Mondrian/Holtzman Trust ", 20);
+		credits = new FlxText(FlxG.width * 9.1, paragraphY, FlxG.width * 0.85, "Made by Cameron Taylor \n\nSong: A2-01 by DrFunkMonkey goo.gl/OIYGnV \n\n(c) 2017 Mondrian/Holtzman Trust", 20);
 		credits.font = paragraphFont;
 		credits.color = FlxColor.BLACK;
 	}
