@@ -14,7 +14,7 @@ class ArtSprite extends FlxSpriteGroup
 	private var sprArt:FlxSprite;
 	public var txtInfo:FlxTypeText;
 
-	public function new(?X:Int = 0, ?Y:Int, artPath:String = "", artInfo:String = "")
+	public function new(?X:Float = 0, ?Y:Float = 0, artPath:String = "", artInfo:String = "")
 	{
 		super();
 		/*
@@ -24,7 +24,7 @@ class ArtSprite extends FlxSpriteGroup
 		sprArt = new FlxSprite(X, Y).loadGraphic(artPath, false);
 		add(sprArt);
 		
-		txtInfo = new FlxTypeText(sprArt.x - 285, sprArt.y + 20, 290, artInfo, 16);
+		txtInfo = new FlxTypeText(sprArt.x - 285, sprArt.y + 20, artInfo.length * 6, artInfo, 16);
 		txtInfo.color = FlxColor.BLACK;
 		txtInfo.font = "assets/data/NEXA BOLD.OTF";
 		add(txtInfo);

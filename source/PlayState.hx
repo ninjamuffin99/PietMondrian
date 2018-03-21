@@ -36,7 +36,6 @@ class PlayState extends FlxState
 	
 	private var credits:FlxText;
 	
-	private var compInRYB:FlxSprite;
 	private var compBRBYG:FlxSprite;
 	private var tableau1:FlxSprite;
 	private var compWhiteRed:FlxSprite;
@@ -66,7 +65,7 @@ class PlayState extends FlxState
 		
 		_grpArt = new FlxTypedGroup<ArtSprite>();
 		
-		var artTest:ArtSprite = new ArtSprite(400, FlxG.height - 80, "assets/images/CompAPixel.png", "composition a some more tesxt tlfsfdas");
+		
 		
 		
 		ground = new FlxSprite(0, FlxG.height - 20);
@@ -76,14 +75,11 @@ class PlayState extends FlxState
 		museumRoof = new FlxSprite(1150, FlxG.height - 200);
 		museumRoof.makeGraphic(FlxG.width * 10, 20, FlxColor.BLACK);
 		
-		compInRYB = new FlxSprite(FlxG.width * 2.8, FlxG.height - 120);
-		compInRYB.loadGraphic("assets/images/CompWithRBY.png", false, 64, 64);
+		var artHeight:Float = FlxG.height - 120;
 		
-		compBRBYG = new FlxSprite(FlxG.width * 3.8, FlxG.height - 120);
-		compBRBYG.loadGraphic("assets/images/compBRBYG.png", false, 64, 64);
-		
-		tableau1 = new FlxSprite(FlxG.width * 4.8, FlxG.height - 150);
-		tableau1.loadGraphic("assets/images/Tableau1.png", false, 66, 102);
+		var compInRYB:ArtSprite = new ArtSprite(FlxG.width * 2.8, artHeight, "assets/images/CompWithRBY.png", "Composition II in Red Blue and Yellow, 1930");
+		var compBRBYG:ArtSprite = new ArtSprite(FlxG.width * 3.8, artHeight, "assets/images/compBRBYG.png", "Composition with Large Red Plane, Yellow, Black, Gray and Blue (1921)");
+		var tableau1:ArtSprite = new ArtSprite(FlxG.width * 4.8, artHeight, "assets/images/Tableau1.png", "Tableau I, 1921");
 		
 		compWhiteRed = new FlxSprite(FlxG.width * 5.8, FlxG.height - 105);
 		compWhiteRed.loadGraphic("assets/images/compwhitesmall.png", false, 64, 48);
@@ -106,11 +102,10 @@ class PlayState extends FlxState
 		
 		add(_grpArt);
 		
-		_grpArt.add(artTest);
+		_grpArt.add(compInRYB);
+		_grpArt.add(compBRBYG);
+		_grpArt.add(tableau1);
 		
-		add(compInRYB);
-		add(compBRBYG);
-		add(tableau1);
 		add(CompA);
 		add(compWhiteRed);
 		
@@ -154,22 +149,7 @@ class PlayState extends FlxState
 	
 	private function createWords():Void
 	{
-		
-		
-		compInRYBText = new FlxTypeText(compInRYB.x - 300, compInRYB.y + 20, Std.int(FlxG.width * 0.5), "Composition II in Red Blue and Yellow, 1930", 16);
-		compInRYBText.color = FlxColor.BLACK;
-		compInRYBText.font = ArtFont;
-		compInRYBText.setTypingVariation(0.1);
-		
-		compInBRBYGText = new FlxTypeText(compBRBYG.x - 300, compBRBYG.y + 20, Std.int(FlxG.width * 0.5), "Composition with Large Red Plane, Yellow, Black, Gray and Blue (1921)", 16);
-		compInBRBYGText.color = FlxColor.BLACK;
-		compInBRBYGText.font = ArtFont;
-		compInBRBYGText.setTypingVariation(0.1);
-		
-		tableau1Text = new FlxTypeText(tableau1.x - 130, tableau1.y + 20, Std.int(FlxG.width * 0.4), "Tableau I, 1921", 16);
-		tableau1Text.color = FlxColor.BLACK;
-		tableau1Text.font = ArtFont;
-		tableau1Text.setTypingVariation(0.1);
+		var ArtFont:String = "";
 		
 		CompWhiteText = new FlxTypeText(compWhiteRed.x - 250, compWhiteRed.y + 10, Std.int(FlxG.width * 0.4), "Composition in Black White and Red, 1936", 16);
 		CompWhiteText.color = FlxColor.BLACK;
@@ -290,6 +270,7 @@ class PlayState extends FlxState
 			_player.x = 6;
 		}
 		
+		/* USE THIS FOR REFERENCE LATER
 		if (FlxG.overlap(_player, compInRYB))
 		{
 			compInRYBText.start(0.05);
@@ -305,36 +286,7 @@ class PlayState extends FlxState
 		{
 			compInRYBText.erase(0.05);
 		}
-		
-		if (FlxG.overlap(_player, compBRBYG))
-		{
-			compInBRBYGText.start(0.05);
-			if (FlxG.keys.anyJustPressed([UP, W, SPACE]))
-			{
-				Player.X = Std.int(_player.x);
-				Player.Y = Std.int(_player.y);
-				
-				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, fadeBRB);
-			}
-		}
-		else
-		{
-			compInBRBYGText.erase(0.05);
-		}
-		
-		if (FlxG.overlap(_player, tableau1))
-		{
-			tableau1Text.start(0.05);
-			if (FlxG.keys.anyJustPressed([UP, W, SPACE]))
-			{
-				Player.X = Std.int(_player.x);
-				Player.Y = Std.int(_player.y);
-				
-				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, fadeTab);
-			}
-		}
-		else
-			tableau1Text.erase(0.05);
+		*/
 		
 		if (FlxG.overlap(_player, compWhiteRed))
 		{
