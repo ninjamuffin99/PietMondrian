@@ -19,13 +19,7 @@ class PlayState extends FlxState
 	private var bg:FlxSprite;
 	
 	private var _title:FlxTypeText;
-	private var _firstParagraph:FlxTypeText;
-	private var _secondParagraph:FlxTypeText;
-	private var _thirdParagraph:FlxTypeText;
-	private var _fourthParagraph:FlxTypeText;
-	private var _fifthParagraph:FlxTypeText;
-	private var _sixthParagraph:FlxTypeText;
-	
+
 	private var listOfWorks:FlxText;
 	private var listOfWorks2:FlxText;
 	
@@ -120,34 +114,14 @@ class PlayState extends FlxState
 			_paragraph.font = "assets/data/Nexa Light.otf";
 			_paragraph.color = FlxColor.BLACK;
 			_paragraph.setTypingVariation(0.1);
-			_paragraph.start(0.02);
+			_paragraph.ID = 0;
 			_grpParagraphs.add(_paragraph);
 		}
-		/*
-		add(_firstParagraph);
-		add(_secondParagraph);
-		add(_thirdParagraph);
-		add(_fourthParagraph);
-		add(_fifthParagraph);
-		add(_sixthParagraph);
-		*/
+
 		add(listOfWorks);
 		add(listOfWorks2);
 		add(credits);
 		add(_vignette);
-		
-		
-		if (TextBegun._secondParagraphBegun)
-		{
-			_secondParagraph.start(0.03);
-			FlxG.log.add("Text Began");
-			_secondParagraph.skip();
-		}
-		if (TextBegun._thirdParagraphBegun)
-		{
-			_thirdParagraph.start(0.1);
-			_thirdParagraph.skip();
-		}
 		
 		super.create();
 	}
@@ -165,37 +139,6 @@ class PlayState extends FlxState
 		var paragraphY:Int = Std.int(FlxG.height * 0.15);
 		var paragraphWidth:Int = Std.int(FlxG.width * 0.8);
 		var paragraphFont:String = "assets/data/Nexa Light.otf";
-		
-		_firstParagraph = new FlxTypeText(FlxG.width * 1.1, paragraphY, paragraphWidth, "A dutch artist from Amersfoot, Netherlands. Born March 7th 1872 and died Febuary 1st 1944 in Manhattan, New York, where he lived for the last four years of his life.", 20);
-		_firstParagraph.font = paragraphFont;
-		_firstParagraph.color = FlxColor.BLACK;
-		_firstParagraph.setTypingVariation(0.1);
-		
-		_secondParagraph = new FlxTypeText(FlxG.width * 2.1, paragraphY, paragraphWidth, "He was a part of the De Stijil art movement, also known as neoplasticism,  which was a minimalist art movement that advocated black lines on white, with primary colors. ", 20);
-		_secondParagraph.font = paragraphFont;
-		_secondParagraph.color = FlxColor.BLACK;
-		_secondParagraph.setTypingVariation(0.1);
-		
-		_thirdParagraph = new FlxTypeText(FlxG.width * 3.1, paragraphY, paragraphWidth, "In 1892 Mondrian began his career teaching primary education, but still practiced painting. At this point in time he’d only do impressionistic landscapes.", 20);
-		_thirdParagraph.font = paragraphFont;
-		_thirdParagraph.color = FlxColor.BLACK;
-		_thirdParagraph.setTypingVariation(0.1);
-		
-		_fourthParagraph = new FlxTypeText(FlxG.width * 4.1, paragraphY, paragraphWidth, "It wasn’t until 1911 when Mondrian’s art became more abstract, when he moved to Paris, France and and became influenced by the cubist styles and works of Picasso and Braque.", 20);
-		_fourthParagraph.font = paragraphFont;
-		_fourthParagraph.color = FlxColor.BLACK;
-		_fourthParagraph.setTypingVariation(0.1);
-		
-		_fifthParagraph = new FlxTypeText(FlxG.width * 5.1, paragraphY, paragraphWidth, "He moved back to The Netherlands in 1914, due to the fact that World War 1 had begun. He met Bart van der Leck and Theo van Doesburg at the Laren artist’s colony, where the three stayed. Mondrian, with Van der Leck, founded De Stijl.", 20);
-		_fifthParagraph.font = paragraphFont;
-		_fifthParagraph.color = FlxColor.BLACK;
-		_fifthParagraph.setTypingVariation(0.1);
-		
-		_sixthParagraph = new FlxTypeText(FlxG.width * 6.1, paragraphY, paragraphWidth, "Mondrian left The Netherlands for London, but after only 2 years, he moved to Manhattan, New York. The black lines of his older works have now been replaced with colored ones, however the primary colored squares and rectangles stayed the same.", 20);
-		_sixthParagraph.font = paragraphFont;
-		_sixthParagraph.color = FlxColor.BLACK;
-		_sixthParagraph.setTypingVariation(0.1);
-		
 		
 		listOfWorks = new FlxText(FlxG.width * 7.05, FlxG.height * 0.05, FlxG.width * 0.9, "List of Signifigant works \n\nWindmill In Sunlight (1908) \n\nGrey Tree (1911) \n\nComposition XIV Composition with Color Planes 5 (1917) \n\nComposition with Grey and Light Brown (1918) \n\nComposition with Large Red Plane, Yellow, Black, Gray and Blue (1921) \n\n", 19);
 		listOfWorks.font = paragraphFont;
@@ -222,48 +165,21 @@ class PlayState extends FlxState
 		}
 	}
 	
+	private function paragraphChecks(p:FlxTypeText):Void
+	{
+		if (_player.x >= p.x - FlxG.width * 0.1 && p.ID == 0)
+		{
+			p.start(0.02);
+			p.ID = 1;
+		}
+	}
+	
 	override public function update(elapsed:Float):Void
 	{
 		FlxG.collide(ground, _player);
 		
 		_grpArt.forEach(artChecks);
-		
-		if (_player.x >= FlxG.width)
-		{
-			_firstParagraph.start(0.03);
-		}
-		if (_player.x >= FlxG.width * 2 && !TextBegun._secondParagraphBegun)
-		{
-			_secondParagraph.start(0.03);
-			TextBegun._secondParagraphBegun = true;
-		}
-		if (_player.x >= FlxG.width * 3 && !TextBegun._thirdParagraphBegun)
-		{
-			_thirdParagraph.start(0.03);
-			TextBegun._thirdParagraphBegun = true;
-		}
-		if (_player.x >= FlxG.width * 4 && !TextBegun._fourthParagraphbegun)
-		{
-			_fourthParagraph.start(0.03);
-			
-			TextBegun._fourthParagraphbegun = true;
-		}
-		
-		if (_player.x >= FlxG.width * 5 && !TextBegun._fifthParagraphbegun)
-		{
-			_fifthParagraph.start(0.03);
-			
-			TextBegun._fifthParagraphbegun = true;
-		}
-		
-		if (_player.x >= FlxG.width * 6 && !TextBegun._sixthParagraphbegun)
-		{
-			_sixthParagraph.start(0.03);
-			
-			TextBegun._sixthParagraphbegun = true;
-		}
-		
-		
+		_grpParagraphs.forEach(paragraphChecks);
 		
 		if (_player.x <= 5)
 		{
