@@ -18,11 +18,6 @@ class PlayState extends FlxState
 	private var museumRoof:FlxSprite;
 	private var bg:FlxSprite;
 	
-	private var compInRYBText:FlxTypeText;
-	private var compInBRBYGText:FlxTypeText;
-	private var tableau1Text:FlxTypeText;
-	private var CompWhiteText:FlxTypeText;
-	
 	private var _title:FlxTypeText;
 	private var _firstParagraph:FlxTypeText;
 	private var _secondParagraph:FlxTypeText;
@@ -43,6 +38,18 @@ class PlayState extends FlxState
 	private var _vignette:FlxSprite;
 	
 	private var _grpArt:FlxTypedGroup<ArtSprite>;
+	private var _grpParagraphs:FlxTypedGroup<FlxTypeText>;
+	
+	private var _paragraphArray:Array<String> =
+	[
+		"A dutch artist from Amersfoot, Netherlands. Born March 7th 1872 and died Febuary 1st 1944 in Manhattan, New York, where he lived for the last four years of his life.",
+		"He was a part of the De Stijil art movement, also known as neoplasticism,  which was a minimalist art movement that advocated black lines on white, with primary colors. ",
+		"In 1892 Mondrian began his career teaching primary education, but still practiced painting. At this point in time he’d only do impressionistic landscapes.",
+		"It wasn’t until 1911 when Mondrian’s art became more abstract, when he moved to Paris, France and and became influenced by the cubist styles and works of Picasso and Braque.",
+		"He moved back to The Netherlands in 1914, due to the fact that World War 1 had begun. He met Bart van der Leck and Theo van Doesburg at the Laren artist’s colony, where the three stayed. Mondrian, with Van der Leck, founded De Stijl.",
+		"Mondrian left The Netherlands for London, but after only 2 years, he moved to Manhattan, New York. The black lines of his older works have now been replaced with colored ones, however the primary colored squares and rectangles stayed the same."
+	];
+	
 	
 	override public function create():Void
 	{
@@ -62,8 +69,7 @@ class PlayState extends FlxState
 		_player = new Player(Player.X, Player.Y);
 		
 		_grpArt = new FlxTypedGroup<ArtSprite>();
-		
-		
+		_grpParagraphs = new FlxTypedGroup<FlxTypeText>();
 		
 		
 		ground = new FlxSprite(0, FlxG.height - 20);
@@ -94,6 +100,7 @@ class PlayState extends FlxState
 		add(bg);
 		
 		add(_grpArt);
+		add(_grpParagraphs);
 		
 		_grpArt.add(compInRYB);
 		_grpArt.add(compBRBYG);
@@ -101,23 +108,29 @@ class PlayState extends FlxState
 		_grpArt.add(compWhiteRed);
 		_grpArt.add(CompA);
 		
-		add(compInRYBText);
-		add(compInBRBYGText);
-		add(tableau1Text);
-		add(CompWhiteText);
-		
 		add(museumRoof);
 		add(_player);
 		add(ground);
 		
 		add(_title);
+		
+		for (str in 0..._paragraphArray.length)
+		{
+			var _paragraph:FlxTypeText = new FlxTypeText(FlxG.width * (str + 0.1 + 1), Std.int(FlxG.height * 0.15), Std.int(FlxG.width * 0.8), _paragraphArray[str], 20);
+			_paragraph.font = "assets/data/Nexa Light.otf";
+			_paragraph.color = FlxColor.BLACK;
+			_paragraph.setTypingVariation(0.1);
+			_paragraph.start(0.02);
+			_grpParagraphs.add(_paragraph);
+		}
+		/*
 		add(_firstParagraph);
 		add(_secondParagraph);
 		add(_thirdParagraph);
 		add(_fourthParagraph);
 		add(_fifthParagraph);
 		add(_sixthParagraph);
-		
+		*/
 		add(listOfWorks);
 		add(listOfWorks2);
 		add(credits);
